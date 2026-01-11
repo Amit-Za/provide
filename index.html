@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProvIDe - Bank-Verified Digital Identity Platform</title>
+    <title>ProvID - Bank-Verified Digital Identity Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
                         </svg>
                     </div>
                     <span class="text-xl font-bold tracking-tight text-white">
-                        Prov<span class="text-sky-400">ID</span>e
+                        Prov<span class="text-sky-400">ID</span>
                     </span>
                 </a>
                 
@@ -119,7 +119,7 @@
                         </svg>
                     </div>
                     <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white">
-                        Prov<span class="text-sky-400">ID</span>e
+                        Prov<span class="text-sky-400">ID</span>
                     </h1>
                 </div>
                 <p class="text-2xl md:text-3xl font-semibold text-slate-300 mb-4">
@@ -153,23 +153,39 @@
                 <h2 class="text-4xl font-bold mb-8 text-white">1. Project Description</h2>
                 <div class="space-y-6 text-slate-300 leading-relaxed">
                     <p class="text-lg">
-                        The goal of this project is to develop a Fintech system for creating bank-verified digital identity, enabling users to authenticate with digital services without the need to upload identification documents such as ID cards or passports.
+                        The Authenticated Bank Identity Platform is a digital identity infrastructure that allows third-party platforms to authenticate users using bank-verified identity. Instead of collecting identity documents, platforms rely on the user's bank as the trust anchor. The platform delegates authentication to regulated banks via OpenFinance.ai and returns cryptographically signed identity assertions.
                     </p>
-                    <p>
-                        The system relies on the bank as a central trust anchor (Trust Anchor), which has already performed a complete legal and regulatory identification process of the user, and allows third parties to receive reliable and secure identity confirmation with the user's consent.
-                    </p>
-                    <p>
-                        The system's vision is to enable every digital service to integrate a unified authentication button - "Identity Verification via Bank" - similar to the common use today of login buttons via Google or Facebook, but with a higher level of trust and in a manner that complies with financial regulation.
-                    </p>
-                    <p>
-                        The project proposes a system for creating a verified digital identity layer that mediates between banks and digital services. The system enables banks to serve as identity providers, and external services to receive verified identity confirmation through simple and unified integration.
-                    </p>
-                    <p>
-                        The system does not replace a bank KYC process, but uses it as a trust foundation. The user authenticates directly with their bank, and the bank confirms, with the user's consent, that this is a legal and verified identity. The digital service does not receive identification documents, but only a digital identity confirmation.
-                    </p>
-                    <p>
-                        The system's vision is to create a new standard for digital authentication, where services will be able to display a unified authentication button of the platform, similar to existing global identity providers, while using the bank as a regulatory trust anchor.
-                    </p>
+                    
+                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 mt-6">
+                        <h3 class="text-xl font-semibold text-white mb-4">Problem Definition: The Identity Friction Trap</h3>
+                        <ul class="space-y-2 text-slate-300 list-disc list-inside">
+                            <li>Document-based KYC introduces friction and user abandonment</li>
+                            <li>Storing identity documents increases regulatory and breach risk</li>
+                            <li>Identity verification is duplicated across services</li>
+                            <li>Social login is convenient but insufficient for regulated onboarding</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 mt-6">
+                        <h3 class="text-xl font-semibold text-white mb-4">Market Analysis & Positioning</h3>
+                        <p class="mb-3">
+                            Open Banking platforms focus on account data, not identity. Traditional KYC vendors focus on document processing. Social identity providers offer convenience but lack legal assurance. Banks already perform the highest level of identity verification, yet this trust is not reusable outside banking.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 mt-6">
+                        <h3 class="text-xl font-semibold text-white mb-4">The Proposed Solution</h3>
+                        <p class="mb-3">
+                            The platform introduces a bank-anchored identity layer. It operates in two modes:
+                        </p>
+                        <ul class="space-y-2 text-slate-300 list-disc list-inside ml-4">
+                            <li><strong class="text-white">Identity Verification Mode:</strong> A service requests a verified assertion for one-time or ongoing verification</li>
+                            <li><strong class="text-white">Identity Provider (IdP) Mode:</strong> The platform acts as an OAuth 2.0 / OpenID Connect provider for third-party login</li>
+                        </ul>
+                        <p class="mt-3">
+                            Bank connectivity is implemented via <strong class="text-sky-400">OpenFinance.ai</strong>, enabling secure integration with regulated banking infrastructure.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -191,10 +207,23 @@
                     <div class="mt-8 bg-slate-800/50 rounded-lg p-6 border border-slate-700">
                         <h3 class="text-xl font-semibold text-white mb-4">Current Solutions & Limitations</h3>
                         <ul class="space-y-3 list-disc list-inside text-slate-300">
-                            <li><strong class="text-white">Traditional KYC:</strong> High friction, complex UX, security risks from document storage</li>
-                            <li><strong class="text-white">Open Banking/Finance:</strong> Provides financial data access but not identity verification services</li>
-                            <li><strong class="text-white">Social Login (Google/Facebook):</strong> Convenient but lacks regulatory compliance for financial services</li>
-                            <li><strong class="text-white">Bank Identity Gap:</strong> Banks perform strictest verification but don't serve as identity providers</li>
+                            <li><strong class="text-white">Traditional KYC Providers:</strong> Rely on document upload and biometrics, introducing high friction and security risks</li>
+                            <li><strong class="text-white">Open Banking Platforms:</strong> Expose financial data but do not provide identity assurance or verification services</li>
+                            <li><strong class="text-white">Global Identity Providers (Social Login):</strong> Convenient but not suitable for regulated use cases requiring legal assurance</li>
+                            <li><strong class="text-white">Bank Identity Gap:</strong> Banks perform strictest verification but don't serve as identity providers for external services</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-8 bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                        <h3 class="text-xl font-semibold text-white mb-4">Technical Foundation</h3>
+                        <p class="text-slate-300 mb-3">
+                            The platform is built on industry-standard protocols and technologies:
+                        </p>
+                        <ul class="space-y-2 text-slate-300 list-disc list-inside">
+                            <li><strong class="text-white">OAuth 2.0:</strong> Authorization framework for secure authentication flows</li>
+                            <li><strong class="text-white">OpenID Connect:</strong> Identity layer on top of OAuth 2.0 for identity verification</li>
+                            <li><strong class="text-white">JWT (JSON Web Token):</strong> Cryptographically signed identity assertions</li>
+                            <li><strong class="text-white">JWS (JSON Web Signature):</strong> Digital signatures for token integrity</li>
                         </ul>
                     </div>
                 </div>
@@ -208,10 +237,13 @@
                 
                 <div class="space-y-8">
                     <div>
-                        <h3 class="text-2xl font-semibold text-white mb-4">Basic Functional Description</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-4">General System Description</h3>
                         <div class="space-y-4 text-slate-300 leading-relaxed">
                             <p>
-                                A digital service integrates an authentication button of the platform - "Identity Verification via Bank" - into the user interface. After clicking the button, the user is redirected to an authentication process with their bank through a secure redirect.
+                                Third-party platforms integrate a standard login or verification flow. Users authenticate via their bank using Strong Customer Authentication (SCA). The platform receives confirmation and issues a signed identity token containing only the claims the platform is authorized to receive.
+                            </p>
+                            <p>
+                                A digital service integrates an authentication button of the platform - "Identity Verification via Bank" or "Login / Verify with Bank" - into the user interface. After clicking the button, the user is redirected to an authentication process with their bank through a secure redirect via OpenFinance.ai.
                             </p>
                             <p>
                                 During authentication, the bank performs strong verification using existing means (password, OTP, biometrics), and after user approval, returns a digital identity confirmation (Identity Assertion) to the system. This confirmation includes verified identity details as needed, such as name match, ID number, age, or country, without transferring documents or financial data.
@@ -247,18 +279,21 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-semibold text-white mb-4">Functional Requirements</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-4">Detailed Functional Requirements</h3>
                         <ul class="space-y-3 text-slate-300 list-disc list-inside">
-                            <li>Secure OAuth 2.0 Authorization Code Flow for bank authentication</li>
-                            <li>Identity assertion generation and validation</li>
-                            <li>Token management and lifecycle handling</li>
-                            <li>Audit logging for compliance and security</li>
-                            <li>RTL (Right-to-Left) UI support for Hebrew interface</li>
-                            <li>Responsive design for mobile and desktop devices</li>
-                            <li>No storage of identification documents or bank login credentials</li>
-                            <li>Support for multiple banks through authorized Open Banking intermediaries</li>
-                            <li>Configurable identity attributes (name, ID, age, country) based on service needs</li>
-                            <li>One-time or continuous identity verification modes</li>
+                            <li><strong class="text-white">Third-party platform registration and approval:</strong> Services must register and be approved before accessing the platform</li>
+                            <li><strong class="text-white">OAuth authorization and token issuance:</strong> Secure OAuth 2.0 Authorization Code Flow for bank authentication</li>
+                            <li><strong class="text-white">Explicit user consent with clear scope definition:</strong> Users must explicitly consent to attribute sharing with clear visibility of what is being shared</li>
+                            <li><strong class="text-white">Policy-based attribute disclosure:</strong> Configurable identity attributes (name, ID, age, country) based on service needs and user consent</li>
+                            <li><strong class="text-white">Time-limited and revocable identity assertions:</strong> Identity tokens have expiration and can be revoked by users</li>
+                            <li><strong class="text-white">Identity assertion generation and validation:</strong> Cryptographically signed JWT tokens containing verified identity claims</li>
+                            <li><strong class="text-white">Token management and lifecycle handling:</strong> Secure storage, refresh, and revocation of tokens</li>
+                            <li><strong class="text-white">Audit logging for compliance and security:</strong> Comprehensive logging of all identity verification events</li>
+                            <li><strong class="text-white">OpenFinance.ai integration:</strong> Bank connectivity via OpenFinance.ai for secure banking infrastructure access</li>
+                            <li><strong class="text-white">RTL (Right-to-Left) UI support:</strong> Hebrew interface support for consent screens and user interactions</li>
+                            <li><strong class="text-white">Responsive design:</strong> Mobile and desktop device optimization</li>
+                            <li><strong class="text-white">No storage of sensitive data:</strong> No storage of identification documents or bank login credentials</li>
+                            <li><strong class="text-white">Dual mode operation:</strong> Support for both identity verification mode and Identity Provider (IdP) mode</li>
                         </ul>
                     </div>
                 </div>
@@ -316,7 +351,7 @@
                                             AuthBtn[Auth Button]
                                         end
                                         
-                                        subgraph ProvIDe["🔐 ProvIDe Platform"]
+                                        subgraph ProvID["🔐 ProvID Platform"]
                                             API[API Gateway]
                                             AuthMod[Auth Module]
                                             IdentitySvc[Identity Service]
@@ -350,7 +385,7 @@
                                         Services --> Crypto
                                         
                                         style Client fill:#1e293b,stroke:#38bdf8,stroke-width:3px,color:#fff
-                                        style ProvIDe fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#fff
+                                        style ProvID fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#fff
                                         style Bank fill:#1e293b,stroke:#f59e0b,stroke-width:3px,color:#fff
                                         style Services fill:#1e293b,stroke:#8b5cf6,stroke-width:3px,color:#fff
                                         style DB fill:#0f172a,stroke:#10b981,stroke-width:3px,color:#fff
@@ -394,7 +429,7 @@
                                             AuthBtn[Auth Button]
                                         end
                                         
-                                        subgraph ProvIDe["🔐 ProvIDe Platform"]
+                                        subgraph ProvID["🔐 ProvID Platform"]
                                             API[API Gateway]
                                             AuthMod[Auth Module]
                                             IdentitySvc[Identity Service]
@@ -428,7 +463,7 @@
                                         Services --> Crypto
                                         
                                         style Client fill:#1e293b,stroke:#38bdf8,stroke-width:3px,color:#fff
-                                        style ProvIDe fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#fff
+                                        style ProvID fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#fff
                                         style Bank fill:#1e293b,stroke:#f59e0b,stroke-width:3px,color:#fff
                                         style Services fill:#1e293b,stroke:#8b5cf6,stroke-width:3px,color:#fff
                                         style DB fill:#0f172a,stroke:#10b981,stroke-width:3px,color:#fff
@@ -441,10 +476,10 @@
                             <h4 class="text-lg font-semibold text-white mb-3">Flow Steps:</h4>
                             <ol class="space-y-2 text-slate-300 text-sm list-decimal list-inside">
                                 <li>User clicks authentication button on digital service</li>
-                                <li>OAuth request sent to ProvIDe API Gateway</li>
-                                <li>ProvIDe redirects to Bank for identity verification</li>
-                                <li>Bank verifies identity and confirms to ProvIDe</li>
-                                <li>ProvIDe generates identity assertion and returns to service</li>
+                                <li>OAuth request sent to ProvID API Gateway</li>
+                                <li>ProvID redirects to Bank for identity verification</li>
+                                <li>Bank verifies identity and confirms to ProvID</li>
+                                <li>ProvID generates identity assertion and returns to service</li>
                                 <li>Digital service receives verified identity without documents</li>
                             </ol>
                         </div>
@@ -577,32 +612,32 @@
                         <h3 class="text-2xl font-semibold text-white mb-6">Project Milestones</h3>
                         <div class="space-y-4">
                             <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 1: Project Setup & Architecture Design</h4>
-                                <p class="text-slate-300 mb-3">Initial project setup, technology stack selection, and system architecture design.</p>
-                                <p class="text-sm text-slate-400">Responsibility: All team members</p>
-                            </div>
-                            
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 2: Backend Development</h4>
-                                <p class="text-slate-300 mb-3">Server-side implementation including API development, authentication module, and identity assertion service.</p>
+                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 1: Regulatory Onboarding & OpenFinance.ai Integration</h4>
+                                <p class="text-slate-300 mb-3">Regulatory compliance setup, OpenFinance.ai platform integration, and secure bank connectivity implementation.</p>
                                 <p class="text-sm text-slate-400">Responsibility: Backend team members</p>
                             </div>
                             
                             <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 3: Frontend Development</h4>
-                                <p class="text-slate-300 mb-3">Client-side application with authentication UI, redirect handling, and responsive design.</p>
+                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 2: Consent Orchestration & Assertion Engine</h4>
+                                <p class="text-slate-300 mb-3">Implementation of consent orchestration service, identity assertion engine with JWT generation, and policy-based attribute disclosure.</p>
+                                <p class="text-sm text-slate-400">Responsibility: Backend team members</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 3: OAuth IdP Enablement & Client Registry</h4>
+                                <p class="text-slate-300 mb-3">OAuth 2.0 / OpenID Connect Identity Provider implementation, client registry service, and third-party platform registration system.</p>
+                                <p class="text-sm text-slate-400">Responsibility: Backend team members</p>
+                            </div>
+                            
+                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 4: Frontend Development</h4>
+                                <p class="text-slate-300 mb-3">Client-side application with authentication UI, consent screens, redirect handling, RTL support, and responsive design.</p>
                                 <p class="text-sm text-slate-400">Responsibility: Frontend team members</p>
                             </div>
                             
                             <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 4: Integration & Testing</h4>
-                                <p class="text-slate-300 mb-3">Integration of all modules, end-to-end testing, security testing, and compliance verification.</p>
-                                <p class="text-sm text-slate-400">Responsibility: All team members</p>
-                            </div>
-                            
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 5: Documentation & Deployment</h4>
-                                <p class="text-slate-300 mb-3">Final documentation, deployment preparation, and project presentation.</p>
+                                <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 5: Security Hardening, Auditing & Documentation</h4>
+                                <p class="text-slate-300 mb-3">Security hardening, comprehensive audit logging, compliance verification, end-to-end testing, and final documentation.</p>
                                 <p class="text-sm text-slate-400">Responsibility: All team members</p>
                             </div>
                         </div>
@@ -646,38 +681,41 @@
                         <h3 class="text-2xl font-semibold text-white mb-4">6.1. Usage Illustration</h3>
                         <div class="space-y-6">
                             <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 1: Loan Application</h4>
+                                <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 1: Fintech Onboarding</h4>
                                 <ol class="space-y-2 text-slate-300 list-decimal list-inside">
-                                    <li>User visits a loan service website and clicks "Apply for Loan"</li>
-                                    <li>Service displays "Verify Identity via Bank" button</li>
-                                    <li>User clicks the button and is redirected to their bank's authentication page</li>
-                                    <li>User authenticates with bank using existing credentials (password, OTP, biometrics)</li>
-                                    <li>Bank confirms identity and redirects back to loan service</li>
-                                    <li>Loan service receives verified identity assertion and proceeds with application</li>
-                                    <li>No document upload required - identity is verified instantly</li>
+                                    <li>User visits a fintech service website and initiates account creation</li>
+                                    <li>Service displays "Login / Verify with Bank" button</li>
+                                    <li>User clicks the button and is redirected to consent screen showing requested attributes</li>
+                                    <li>User reviews and approves consent, then authenticates with bank via OpenFinance.ai</li>
+                                    <li>User authenticates with bank using Strong Customer Authentication (password, OTP, biometrics)</li>
+                                    <li>Bank confirms identity and redirects back to fintech service</li>
+                                    <li>Fintech service receives cryptographically signed identity assertion</li>
+                                    <li>Account is created instantly without document upload - identity is verified via bank</li>
                                 </ol>
                             </div>
 
                             <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 2: E-commerce Account Creation</h4>
+                                <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 2: Trading Account Activation</h4>
                                 <ol class="space-y-2 text-slate-300 list-decimal list-inside">
-                                    <li>User wants to create a seller account on an e-commerce platform</li>
-                                    <li>Platform requires identity verification for sellers</li>
+                                    <li>User wants to activate a trading account that requires age and residency verification</li>
+                                    <li>Trading platform requires identity verification for regulatory compliance</li>
                                     <li>User clicks "Verify via Bank" authentication button</li>
-                                    <li>After bank authentication, platform receives verified identity</li>
-                                    <li>Account is created instantly with verified status</li>
-                                    <li>User can start selling immediately without document verification delays</li>
+                                    <li>Consent screen displays requested attributes (age, country, name)</li>
+                                    <li>After bank authentication and user consent, platform receives verified identity assertion</li>
+                                    <li>Trading account is activated with verified status</li>
+                                    <li>User can start trading immediately without document verification delays</li>
                                 </ol>
                             </div>
 
                             <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 3: Age-Restricted Service</h4>
+                                <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 3: Marketplace Seller Verification</h4>
                                 <ol class="space-y-2 text-slate-300 list-decimal list-inside">
-                                    <li>User attempts to access an age-restricted service (e.g., crypto trading)</li>
-                                    <li>Service requires age verification</li>
-                                    <li>User authenticates via bank using ProvIDe</li>
-                                    <li>Service receives age confirmation (without full ID details)</li>
-                                    <li>Access is granted based on verified age attribute</li>
+                                    <li>User wants to create a seller account on a marketplace platform</li>
+                                    <li>Platform requires identity verification for sellers to prevent fraud</li>
+                                    <li>User authenticates via bank using ProvID platform</li>
+                                    <li>Consent screen shows what information will be shared (name, ID verification status)</li>
+                                    <li>Service receives verified identity assertion without full ID details</li>
+                                    <li>Seller account is created instantly with verified status</li>
                                     <li>Privacy is maintained - only necessary information is shared</li>
                                 </ol>
                             </div>
@@ -706,7 +744,7 @@
                                             </div>
                                             <span>Verify Identity via Bank</span>
                                         </button>
-                                        <p class="text-slate-500 text-xs text-center mt-3">Powered by ProvIDe</p>
+                                        <p class="text-slate-500 text-xs text-center mt-3">Powered by ProvID</p>
                                     </div>
                                 </div>
                             </div>
@@ -810,6 +848,57 @@
                                 </div>
                             </div>
 
+                            <!-- Consent Screen Mockup -->
+                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                                <h4 class="text-xl font-semibold text-emerald-400 mb-4">Consent Screen - Attribute Disclosure</h4>
+                                <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
+                                    <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full">
+                                        <h5 class="text-slate-900 font-semibold mb-4">Consent to Share Identity Information</h5>
+                                        <p class="text-slate-600 text-sm mb-4">The following service is requesting access to your verified identity information:</p>
+                                        <div class="bg-slate-50 rounded-lg p-4 mb-4">
+                                            <p class="font-semibold text-slate-900 mb-2">Trading Platform</p>
+                                            <p class="text-xs text-slate-600">trading-platform.example.com</p>
+                                        </div>
+                                        <div class="border-t border-slate-200 pt-4 mb-4">
+                                            <p class="text-slate-700 text-sm font-medium mb-3">Requested Information:</p>
+                                            <ul class="space-y-2 text-slate-600 text-sm">
+                                                <li class="flex items-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                    Full Name
+                                                </li>
+                                                <li class="flex items-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                    Age Verification
+                                                </li>
+                                                <li class="flex items-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                    Country of Residence
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-sky-50 rounded-lg p-3 mb-4">
+                                            <p class="text-xs text-slate-600">
+                                                <strong class="text-slate-900">Note:</strong> Your bank login credentials and full ID number will not be shared. Only verified identity attributes will be provided.
+                                            </p>
+                                        </div>
+                                        <div class="flex gap-3">
+                                            <button class="flex-1 border-2 border-slate-300 hover:border-slate-400 text-slate-700 font-semibold py-3 px-6 rounded-lg transition-all">
+                                                Cancel
+                                            </button>
+                                            <button class="flex-1 bg-gradient-to-r from-sky-600 to-emerald-500 hover:from-sky-700 hover:to-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-all">
+                                                Approve & Continue
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Redirect/Loading Mockup -->
                             <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Redirect / Loading State</h4>
@@ -895,35 +984,76 @@
 
                     <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
                         <h3 class="text-2xl font-semibold text-white mb-4">Server Architecture</h3>
+                        <p class="text-slate-300 mb-4">
+                            The server-side platform is built on a microservices architecture, ensuring scalability, security, and regulatory compliance. The system integrates with OpenFinance.ai for bank connectivity and implements OAuth 2.0 / OpenID Connect standards.
+                        </p>
                         <ul class="space-y-3 text-slate-300 list-disc list-inside">
                             <li>RESTful API architecture for service integration</li>
-                            <li>Microservices-based design for scalability</li>
+                            <li>Microservices-based design for scalability and maintainability</li>
                             <li>Secure token management and storage</li>
-                            <li>Identity assertion generation and validation</li>
-                            <li>Integration with Open Banking intermediaries</li>
-                            <li>Comprehensive audit logging system</li>
+                            <li>Identity assertion generation and validation using JWT</li>
+                            <li>Integration with OpenFinance.ai for bank connectivity</li>
+                            <li>Comprehensive audit logging system for compliance</li>
                             <li>Data encryption at rest and in transit</li>
                             <li>Rate limiting and API security measures</li>
                         </ul>
+                    </div>
+
+                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Microservices & Modules</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-slate-900/50 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-sky-400 mb-2">OAuth Authorization Server</h4>
+                                <p class="text-slate-300 text-sm">Handles OAuth 2.0 and OpenID Connect flows, token issuance, and authorization management</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-sky-400 mb-2">Client Registry Service</h4>
+                                <p class="text-slate-300 text-sm">Manages third-party platform registration, approval, and client credentials</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-sky-400 mb-2">Consent Orchestration Service</h4>
+                                <p class="text-slate-300 text-sm">Orchestrates user consent flows, scope management, and consent revocation</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-sky-400 mb-2">OpenFinance.ai Integration Layer</h4>
+                                <p class="text-slate-300 text-sm">Handles secure communication with banks via OpenFinance.ai API</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-sky-400 mb-2">Identity Assertion Engine</h4>
+                                <p class="text-slate-300 text-sm">Generates and validates cryptographically signed identity assertions (JWT)</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-sky-400 mb-2">Audit & Compliance Module</h4>
+                                <p class="text-slate-300 text-sm">Comprehensive logging, audit trails, and compliance reporting</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div>
                         <h3 class="text-2xl font-semibold text-white mb-4">7.1. API</h3>
                         <div class="space-y-6">
                             <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
-                                <h4 class="text-xl font-semibold text-emerald-400 mb-4">Authentication Endpoints</h4>
+                                <h4 class="text-xl font-semibold text-emerald-400 mb-4">OAuth 2.0 / OpenID Connect Endpoints</h4>
                                 <div class="space-y-3 font-mono text-sm">
                                     <div class="bg-slate-900/50 rounded p-3">
-                                        <span class="text-sky-400">POST</span> <span class="text-white">/api/v1/auth/initiate</span>
-                                        <p class="text-slate-400 mt-1">Initiate OAuth 2.0 authentication flow</p>
+                                        <span class="text-sky-400">GET</span> <span class="text-white">/oauth/authorize</span>
+                                        <p class="text-slate-400 mt-1">OAuth 2.0 authorization endpoint - initiates authentication flow</p>
                                     </div>
                                     <div class="bg-slate-900/50 rounded p-3">
-                                        <span class="text-sky-400">POST</span> <span class="text-white">/api/v1/auth/callback</span>
-                                        <p class="text-slate-400 mt-1">Handle OAuth callback from bank</p>
+                                        <span class="text-sky-400">POST</span> <span class="text-white">/oauth/token</span>
+                                        <p class="text-slate-400 mt-1">Token endpoint - exchanges authorization code for access/ID tokens</p>
                                     </div>
                                     <div class="bg-slate-900/50 rounded p-3">
-                                        <span class="text-sky-400">POST</span> <span class="text-white">/api/v1/auth/token</span>
-                                        <p class="text-slate-400 mt-1">Exchange authorization code for tokens</p>
+                                        <span class="text-sky-400">GET</span> <span class="text-white">/.well-known/openid-configuration</span>
+                                        <p class="text-slate-400 mt-1">OpenID Connect discovery endpoint - provides configuration metadata</p>
+                                    </div>
+                                    <div class="bg-slate-900/50 rounded p-3">
+                                        <span class="text-sky-400">GET</span> <span class="text-white">/keys/jwks.json</span>
+                                        <p class="text-slate-400 mt-1">JSON Web Key Set endpoint - provides public keys for token verification</p>
+                                    </div>
+                                    <div class="bg-slate-900/50 rounded p-3">
+                                        <span class="text-sky-400">POST</span> <span class="text-white">/v1/openfinance/oauth/callback</span>
+                                        <p class="text-slate-400 mt-1">OpenFinance.ai OAuth callback handler - processes bank authentication responses</p>
                                     </div>
                                 </div>
                             </div>
@@ -995,12 +1125,14 @@
                     <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
                         <h3 class="text-2xl font-semibold text-white mb-4">Technologies & Standards</h3>
                         <ul class="space-y-2 text-slate-300">
-                            <li><strong class="text-white">OAuth 2.0:</strong> Authorization framework for secure authentication</li>
-                            <li><strong class="text-white">Open Banking / Open Finance:</strong> Financial data sharing standards</li>
+                            <li><strong class="text-white">OAuth 2.0 (RFC 6749):</strong> Authorization framework for secure authentication flows</li>
+                            <li><strong class="text-white">OpenID Connect Core 1.0:</strong> Identity layer on top of OAuth 2.0 for identity verification</li>
+                            <li><strong class="text-white">JWT (RFC 7519):</strong> JSON Web Token format for identity assertions</li>
+                            <li><strong class="text-white">JWS (RFC 7515):</strong> JSON Web Signature for cryptographically signed tokens</li>
+                            <li><strong class="text-white">OpenFinance.ai:</strong> <a href="https://docs.open-finance.ai/" target="_blank" class="text-sky-400 hover:text-sky-300 underline">https://docs.open-finance.ai/</a> - Open Banking platform for bank connectivity</li>
                             <li><strong class="text-white">REST API:</strong> Architectural style for web services</li>
                             <li><strong class="text-white">Angular / React:</strong> Frontend frameworks for client-side development</li>
                             <li><strong class="text-white">.NET / Node.js / Python:</strong> Backend runtime environments</li>
-                            <li><strong class="text-white">JWT (JSON Web Tokens):</strong> Token format for identity assertions</li>
                         </ul>
                     </div>
 
@@ -1017,8 +1149,10 @@
                     <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
                         <h3 class="text-2xl font-semibold text-white mb-4">Related Products & Solutions</h3>
                         <ul class="space-y-2 text-slate-300">
-                            <li><strong class="text-white">Open Banking Platforms:</strong> Existing financial data sharing solutions</li>
-                            <li><strong class="text-white">Social Login Providers:</strong> Google, Facebook authentication services</li>
+                            <li><strong class="text-white">OpenFinance.ai:</strong> Open Banking platform providing secure bank connectivity and API integration</li>
+                            <li><strong class="text-white">Open Banking Platforms:</strong> Existing financial data sharing solutions (focus on data, not identity)</li>
+                            <li><strong class="text-white">Traditional KYC Providers:</strong> Document-based identity verification solutions</li>
+                            <li><strong class="text-white">Social Login Providers:</strong> Google, Facebook authentication services (convenient but not suitable for regulated use cases)</li>
                             <li><strong class="text-white">Digital Identity Solutions:</strong> eIDAS, national ID systems</li>
                             <li><strong class="text-white">Banking APIs:</strong> Bank-provided API services</li>
                         </ul>
@@ -1048,7 +1182,7 @@
                         </svg>
                     </div>
                     <span class="text-lg font-bold text-white">
-                        Prov<span class="text-sky-400">ID</span>e
+                        Prov<span class="text-sky-400">ID</span>
                     </span>
                 </div>
                 <p class="text-slate-400 text-sm mb-4">
