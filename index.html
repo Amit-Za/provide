@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProvID - Bank-Verified Digital Identity Platform</title>
+    <title>ProvIDe - Bank-Verified Digital Identity Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
                         </svg>
                     </div>
                     <span class="text-xl font-bold tracking-tight text-white">
-                        Prov<span class="text-sky-400">ID</span>
+                        Prov<span class="text-sky-400">ID</span>e
                     </span>
                 </a>
                 
@@ -119,7 +119,7 @@
                         </svg>
                     </div>
                     <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white">
-                        Prov<span class="text-sky-400">ID</span>
+                        Prov<span class="text-sky-400">ID</span>e
                     </h1>
                 </div>
                 <p class="text-2xl md:text-3xl font-semibold text-slate-300 mb-4">
@@ -153,11 +153,11 @@
                 <h2 class="text-4xl font-bold mb-8 text-white">1. Project Description</h2>
                 <div class="space-y-6 text-slate-300 leading-relaxed">
                     <p class="text-lg">
-                        The Authenticated Bank Identity Platform is a digital identity infrastructure that allows third-party platforms to authenticate users using bank-verified identity. Instead of collecting identity documents, platforms rely on the user's bank as the trust anchor. The platform delegates authentication to regulated banks via OpenFinance.ai and returns cryptographically signed identity assertions.
+                        ProvIDe is a digital identity infrastructure that allows third-party platforms to authenticate users using bank-verified identity. Instead of collecting identity documents, platforms rely on the user's bank as the trust anchor. The platform delegates authentication to regulated banks via OpenFinance.ai and returns cryptographically signed identity assertions.
                     </p>
                     
                     <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 mt-6">
-                        <h3 class="text-xl font-semibold text-white mb-4">Problem Definition: The Identity Friction Trap</h3>
+                        <h3 class="text-xl font-semibold text-white mb-4">Problem Definition: Challenges in Digital Identity Verification</h3>
                         <ul class="space-y-2 text-slate-300 list-disc list-inside">
                             <li>Document-based KYC introduces friction and user abandonment</li>
                             <li>Storing identity documents increases regulatory and breach risk</li>
@@ -351,7 +351,7 @@
                                             AuthBtn[Auth Button]
                                         end
                                         
-                                        subgraph ProvID["🔐 ProvID Platform"]
+                                        subgraph ProvIDe["🔐 ProvIDe Platform"]
                                             API[API Gateway]
                                             AuthMod[Auth Module]
                                             IdentitySvc[Identity Service]
@@ -385,7 +385,7 @@
                                         Services --> Crypto
                                         
                                         style Client fill:#1e293b,stroke:#38bdf8,stroke-width:3px,color:#fff
-                                        style ProvID fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#fff
+                                        style ProvIDe fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#fff
                                         style Bank fill:#1e293b,stroke:#f59e0b,stroke-width:3px,color:#fff
                                         style Services fill:#1e293b,stroke:#8b5cf6,stroke-width:3px,color:#fff
                                         style DB fill:#0f172a,stroke:#10b981,stroke-width:3px,color:#fff
@@ -429,7 +429,7 @@
                                             AuthBtn[Auth Button]
                                         end
                                         
-                                        subgraph ProvID["🔐 ProvID Platform"]
+                                        subgraph ProvIDe["🔐 ProvIDe Platform"]
                                             API[API Gateway]
                                             AuthMod[Auth Module]
                                             IdentitySvc[Identity Service]
@@ -463,7 +463,7 @@
                                         Services --> Crypto
                                         
                                         style Client fill:#1e293b,stroke:#38bdf8,stroke-width:3px,color:#fff
-                                        style ProvID fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#fff
+                                        style ProvIDe fill:#1e293b,stroke:#10b981,stroke-width:3px,color:#fff
                                         style Bank fill:#1e293b,stroke:#f59e0b,stroke-width:3px,color:#fff
                                         style Services fill:#1e293b,stroke:#8b5cf6,stroke-width:3px,color:#fff
                                         style DB fill:#0f172a,stroke:#10b981,stroke-width:3px,color:#fff
@@ -476,10 +476,10 @@
                             <h4 class="text-lg font-semibold text-white mb-3">Flow Steps:</h4>
                             <ol class="space-y-2 text-slate-300 text-sm list-decimal list-inside">
                                 <li>User clicks authentication button on digital service</li>
-                                <li>OAuth request sent to ProvID API Gateway</li>
-                                <li>ProvID redirects to Bank for identity verification</li>
-                                <li>Bank verifies identity and confirms to ProvID</li>
-                                <li>ProvID generates identity assertion and returns to service</li>
+                                <li>OAuth request sent to ProvIDe API Gateway</li>
+                                <li>ProvIDe redirects to Bank for identity verification</li>
+                                <li>Bank verifies identity and confirms to ProvIDe</li>
+                                <li>ProvIDe generates identity assertion and returns to service</li>
                                 <li>Digital service receives verified identity without documents</li>
                             </ol>
                         </div>
@@ -712,7 +712,7 @@
                                 <ol class="space-y-2 text-slate-300 list-decimal list-inside">
                                     <li>User wants to create a seller account on a marketplace platform</li>
                                     <li>Platform requires identity verification for sellers to prevent fraud</li>
-                                    <li>User authenticates via bank using ProvID platform</li>
+                                    <li>User authenticates via bank using ProvIDe platform</li>
                                     <li>Consent screen shows what information will be shared (name, ID verification status)</li>
                                     <li>Service receives verified identity assertion without full ID details</li>
                                     <li>Seller account is created instantly with verified status</li>
@@ -744,7 +744,7 @@
                                             </div>
                                             <span>Verify Identity via Bank</span>
                                         </button>
-                                        <p class="text-slate-500 text-xs text-center mt-3">Powered by ProvID</p>
+                                        <p class="text-slate-500 text-xs text-center mt-3">Powered by ProvIDe</p>
                                     </div>
                                 </div>
                             </div>
@@ -1182,7 +1182,7 @@
                         </svg>
                     </div>
                     <span class="text-lg font-bold text-white">
-                        Prov<span class="text-sky-400">ID</span>
+                        Prov<span class="text-sky-400">ID</span>e
                     </span>
                 </div>
                 <p class="text-slate-400 text-sm mb-4">
