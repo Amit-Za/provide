@@ -42,7 +42,7 @@ ProvIDe bridges the gap between bank-level identity verification and third-party
 2. Secure redirect to bank via OpenFinance.ai
 3. Strong authentication at bank (password, OTP, biometrics)
 4. Bank confirms identity and returns digital assertion
-5. Service receives verified identity confirmation—no documents needed
+5. Service receives verified identity confirmation - no documents needed
 
 ### Operating Modes
 
