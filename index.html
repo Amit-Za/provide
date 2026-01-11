@@ -103,25 +103,69 @@
         section {
             transition: all 0.3s ease;
         }
-        /* Professional hover effects */
+        /* 3D Shadow Effects */
+        .shadow-3d {
+            box-shadow: 
+                0 10px 25px -5px rgba(0, 0, 0, 0.4),
+                0 5px 10px -3px rgba(0, 0, 0, 0.3),
+                0 2px 4px -1px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .shadow-3d-lg {
+            box-shadow: 
+                0 20px 40px -10px rgba(0, 0, 0, 0.5),
+                0 10px 20px -5px rgba(0, 0, 0, 0.4),
+                0 4px 8px -2px rgba(0, 0, 0, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1);
+        }
+        .shadow-3d-xl {
+            box-shadow: 
+                0 30px 60px -15px rgba(0, 0, 0, 0.6),
+                0 15px 30px -8px rgba(0, 0, 0, 0.5),
+                0 6px 12px -3px rgba(0, 0, 0, 0.4),
+                inset 0 3px 0 rgba(255, 255, 255, 0.15);
+        }
+        /* Professional hover effects with 3D */
         .hover-lift {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 12px 24px -6px rgba(0, 0, 0, 0.4),
+                0 6px 12px -3px rgba(0, 0, 0, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.15);
+        }
+        /* Card styling with 3D effect */
+        .card-3d {
+            background: rgb(30, 41, 59);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: 
+                0 8px 20px -4px rgba(0, 0, 0, 0.4),
+                0 4px 10px -2px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        /* Icon container with 3D effect */
+        .icon-3d {
+            background: rgb(56, 189, 248);
+            box-shadow: 
+                0 8px 16px -4px rgba(56, 189, 248, 0.4),
+                0 4px 8px -2px rgba(56, 189, 248, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100">
     
     <!-- Navigation Bar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800 shadow-3d">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
                 <a href="#home" class="flex items-center gap-3">
-                    <div class="bg-gradient-to-br from-sky-400 to-emerald-400 w-10 h-10 rounded-lg flex items-center justify-center">
+                    <div class="icon-3d w-10 h-10 rounded-lg flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
@@ -171,7 +215,7 @@
     <!-- Main Content -->
     <main class="pt-16">
         <!-- Header Section -->
-        <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        <section id="home" class="min-h-screen flex items-center justify-center bg-slate-900 relative overflow-hidden">
             <!-- Subtle background pattern -->
             <div class="absolute inset-0 opacity-5">
                 <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
@@ -179,14 +223,14 @@
             
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 relative z-10">
                 <div class="flex items-center justify-center gap-4 mb-8 animate-fade-in">
-                    <div class="bg-gradient-to-br from-sky-400 to-emerald-400 w-20 h-20 rounded-2xl flex items-center justify-center shadow-2xl shadow-sky-500/30 transform hover:scale-105 transition-transform duration-300">
+                    <div class="icon-3d w-20 h-20 rounded-2xl flex items-center justify-center shadow-3d-xl transform hover:scale-105 transition-transform duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                         </svg>
                     </div>
                     <h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-white">
-                        Prov<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">ID</span>e
+                        Prov<span class="text-sky-400">ID</span>e
                     </h1>
                 </div>
                 
@@ -202,7 +246,7 @@
                 
                 <!-- Key Value Propositions -->
                 <div class="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-                    <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover:border-sky-500/50 transition-all duration-300">
+                    <div class="card-3d rounded-xl p-6 shadow-3d hover-lift transition-all duration-300">
                         <div class="w-12 h-12 bg-sky-500/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -211,7 +255,7 @@
                         <h3 class="text-white font-semibold mb-2">Bank-Level Security</h3>
                         <p class="text-slate-400 text-sm">Leverage existing bank KYC verification without storing sensitive documents</p>
                     </div>
-                    <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover:border-emerald-500/50 transition-all duration-300">
+                    <div class="card-3d rounded-xl p-6 shadow-3d hover-lift transition-all duration-300">
                         <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -220,7 +264,7 @@
                         <h3 class="text-white font-semibold mb-2">Zero Friction</h3>
                         <p class="text-slate-400 text-sm">Instant verification eliminates document uploads and reduces abandonment</p>
                     </div>
-                    <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover:border-purple-500/50 transition-all duration-300">
+                    <div class="card-3d rounded-xl p-6 shadow-3d hover-lift transition-all duration-300">
                         <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -232,7 +276,7 @@
                 </div>
                 
                 <div class="mt-12 space-y-4 text-left max-w-2xl mx-auto">
-                    <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg">
+                    <div class="card-3d rounded-xl p-6 shadow-3d">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-xs text-slate-400 mb-1 uppercase tracking-wider">By</p>
@@ -248,7 +292,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg">
+                    <div class="card-3d rounded-xl p-6 shadow-3d">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-xs text-slate-400 mb-1 uppercase tracking-wider">Supervisor</p>
@@ -259,7 +303,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg">
+                    <div class="card-3d rounded-xl p-6 shadow-3d">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-xs text-slate-400 mb-1 uppercase tracking-wider">Repository</p>
@@ -285,10 +329,10 @@
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Overview</span>
                     <h2 class="text-5xl font-bold mb-4 text-white">1. Project Description</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full"></div>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 <div class="space-y-8 text-slate-300 leading-relaxed">
-                    <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 shadow-xl">
+                    <div class="card-3d rounded-2xl p-8 shadow-3d-lg">
                         <p class="text-xl text-white font-semibold mb-4">
                             ProvIDe is a next-generation digital identity infrastructure that revolutionizes how third-party platforms verify user identity.
                         </p>
@@ -298,7 +342,7 @@
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-6 mt-8">
-                        <div class="bg-gradient-to-br from-red-900/20 to-slate-800/60 backdrop-blur-sm rounded-xl p-6 border border-red-500/20 hover-lift">
+                        <div class="bg-slate-800 rounded-xl p-6 border border-red-500/30 shadow-3d hover-lift">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -327,7 +371,7 @@
                         </ul>
                     </div>
 
-                        <div class="bg-gradient-to-br from-emerald-900/20 to-slate-800/60 backdrop-blur-sm rounded-xl p-6 border border-emerald-500/20 hover-lift">
+                        <div class="bg-slate-800 rounded-xl p-6 border border-emerald-500/30 shadow-3d hover-lift">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -352,7 +396,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 shadow-xl mt-8">
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg mt-8">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -417,7 +461,7 @@
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Research</span>
                     <h2 class="text-5xl font-bold mb-4 text-white">2. Related Work</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full"></div>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 <div class="space-y-6 text-slate-300 leading-relaxed">
                     <p>
@@ -461,7 +505,7 @@
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Specifications</span>
                     <h2 class="text-5xl font-bold mb-4 text-white">3. Functional Description / Requirements</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full"></div>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 
                 <div class="space-y-8">
@@ -486,7 +530,7 @@
                     <div>
                         <h3 class="text-2xl font-semibold text-white mb-6">Core Use Cases</h3>
                         <div class="grid md:grid-cols-3 gap-6">
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift group">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift group">
                                 <div class="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-500/30 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -497,7 +541,7 @@
                                     Eliminate document uploads and selfie verification. Enable instant account creation with bank-verified identity for loans, credit applications, and financial products.
                                 </p>
                             </div>
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift group">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift group">
                                 <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-500/30 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -508,7 +552,7 @@
                                     Verify customers and sellers instantly. Reduce identity fraud, enable verified account creation, and streamline onboarding for trading platforms and marketplaces.
                                 </p>
                             </div>
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift group">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift group">
                                 <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-amber-500/30 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -550,7 +594,7 @@
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">System Design</span>
                     <h2 class="text-5xl font-bold mb-4 text-white">4. Architecture</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full"></div>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                     <p class="text-lg text-slate-400 mt-4 max-w-3xl">
                         Built on industry-standard protocols with a microservices architecture designed for security, scalability, and regulatory compliance.
                     </p>
@@ -564,7 +608,7 @@
                     </div>
 
                     <!-- Architecture Diagram -->
-                    <div class="bg-slate-800/50 rounded-lg p-8 border border-slate-700">
+                    <div class="card-3d rounded-lg p-8 shadow-3d-lg">
                         <div class="flex items-center justify-between mb-6">
                             <h3 class="text-2xl font-semibold text-white">System Architecture Diagram</h3>
                             <div class="flex items-center gap-2">
@@ -591,9 +635,9 @@
                                 </button>
                             </div>
                         </div>
-                        <div id="diagram-container" class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl border border-slate-700/50 overflow-hidden shadow-2xl" style="box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);">
+                        <div id="diagram-container" class="relative bg-slate-800 rounded-2xl border border-slate-700/50 overflow-hidden shadow-3d-xl">
                             <div id="diagram-wrapper" class="overflow-auto" style="cursor: grab;">
-                                <div id="mermaid-diagram" class="mermaid bg-gradient-to-br from-slate-900/50 to-slate-800/30 p-8 rounded-xl" style="font-size: 18px; transform-origin: top left; transition: transform 0.2s; backdrop-blur-sm; display: inline-block;">
+                                <div id="mermaid-diagram" class="mermaid bg-slate-800/50 p-8 rounded-xl" style="font-size: 18px; transform-origin: top left; transition: transform 0.2s; display: inline-block;">
                                     graph LR
                                         User[👤 User]
                                         Client[🖥️ Client App]
@@ -642,7 +686,7 @@
                                 </button>
                             </div>
                             <div id="fullscreen-wrapper" class="w-full h-full overflow-hidden" style="cursor: grab; position: relative;">
-                                <div id="fullscreen-diagram" class="bg-gradient-to-br from-slate-900/50 to-slate-800/30 p-8 m-auto rounded-xl" style="min-width: 100%; min-height: 100vh; font-size: 24px; transform-origin: 0 0; will-change: transform; backdrop-blur-sm;">
+                                <div id="fullscreen-diagram" class="bg-slate-800/50 p-8 m-auto rounded-xl" style="min-width: 100%; min-height: 100vh; font-size: 24px; transform-origin: 0 0; will-change: transform;">
                                     graph LR
                                         User[👤 User]
                                         Client[🖥️ Client App]
@@ -665,7 +709,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 rounded-xl p-6 border border-slate-700/50 backdrop-blur-sm shadow-lg">
+                        <div class="mt-6 card-3d rounded-xl p-6 shadow-3d">
                             <h4 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -701,7 +745,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-8 border border-slate-700">
+                    <div class="card-3d rounded-lg p-8 shadow-3d-lg">
                         <h3 class="text-2xl font-semibold text-white mb-6">System Components</h3>
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
@@ -748,7 +792,7 @@
                     <div>
                         <h3 class="text-2xl font-semibold text-white mb-6">4.1. Each Module Description</h3>
                         <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift">
                                 <div class="flex items-center gap-3 mb-3">
                                     <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -762,7 +806,7 @@
                                 </p>
                             </div>
                             
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift">
                                 <div class="flex items-center gap-3 mb-3">
                                     <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -776,7 +820,7 @@
                                 </p>
                             </div>
                             
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift">
                                 <div class="flex items-center gap-3 mb-3">
                                     <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -790,7 +834,7 @@
                                 </p>
                             </div>
                             
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift">
                                 <div class="flex items-center gap-3 mb-3">
                                     <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -804,7 +848,7 @@
                                 </p>
                             </div>
                             
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift">
                                 <div class="flex items-center gap-3 mb-3">
                                     <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -818,7 +862,7 @@
                                 </p>
                             </div>
                             
-                            <div class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 shadow-lg hover-lift">
+                            <div class="card-3d rounded-xl p-6 shadow-3d hover-lift">
                                 <div class="flex items-center gap-3 mb-3">
                                     <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -1627,11 +1671,11 @@
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Execution</span>
                     <h2 class="text-5xl font-bold mb-4 text-white">5. Work Plan</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full"></div>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 
                 <div class="space-y-8">
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-6">Team Members</h3>
                         <div class="grid md:grid-cols-2 gap-4 text-slate-300">
                             <div>
@@ -1660,31 +1704,31 @@
                     <div>
                         <h3 class="text-2xl font-semibold text-white mb-6">Project Milestones</h3>
                         <div class="space-y-4">
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 1: Regulatory Onboarding & OpenFinance.ai Integration</h4>
                                 <p class="text-slate-300 mb-3">Regulatory compliance setup, OpenFinance.ai platform integration, and secure bank connectivity implementation.</p>
                                 <p class="text-sm text-slate-400">Responsibility: Backend team members</p>
                             </div>
                             
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 2: Consent Orchestration & Assertion Engine</h4>
                                 <p class="text-slate-300 mb-3">Implementation of consent orchestration service, identity assertion engine with JWT generation, and policy-based attribute disclosure.</p>
                                 <p class="text-sm text-slate-400">Responsibility: Backend team members</p>
                             </div>
                             
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 3: OAuth IdP Enablement & Client Registry</h4>
                                 <p class="text-slate-300 mb-3">OAuth 2.0 / OpenID Connect Identity Provider implementation, client registry service, and third-party platform registration system.</p>
                                 <p class="text-sm text-slate-400">Responsibility: Backend team members</p>
                             </div>
                             
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 4: Frontend Development</h4>
                                 <p class="text-slate-300 mb-3">Client-side application with authentication UI, consent screens, redirect handling, RTL support, and responsive design.</p>
                                 <p class="text-sm text-slate-400">Responsibility: Frontend team members</p>
                             </div>
                             
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-sky-400 mb-2">Milestone 5: Security Hardening, Auditing & Documentation</h4>
                                 <p class="text-slate-300 mb-3">Security hardening, comprehensive audit logging, compliance verification, end-to-end testing, and final documentation.</p>
                                 <p class="text-sm text-slate-400">Responsibility: All team members</p>
@@ -1692,7 +1736,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <p class="text-slate-300">
                             <strong class="text-white">Note:</strong> Detailed work plan with specific tasks and timelines will be managed using team management software (Monday, Trello, or Jira).
                         </p>
@@ -1707,7 +1751,7 @@
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Frontend</span>
                     <h2 class="text-5xl font-bold mb-4 text-white">6. Client Side</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full"></div>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 
                 <div class="space-y-8">
@@ -1717,7 +1761,7 @@
                         </p>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-4">Key Features</h3>
                         <ul class="space-y-3 text-slate-300 list-disc list-inside">
                             <li>Unified authentication button component for easy integration</li>
@@ -1733,7 +1777,7 @@
                     <div>
                         <h3 class="text-2xl font-semibold text-white mb-4">6.1. Usage Illustration</h3>
                         <div class="space-y-6">
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 1: Fintech Onboarding</h4>
                                 <ol class="space-y-2 text-slate-300 list-decimal list-inside">
                                     <li>User visits a fintech service website and initiates account creation</li>
@@ -1747,7 +1791,7 @@
                                 </ol>
                             </div>
 
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 2: Trading Account Activation</h4>
                                 <ol class="space-y-2 text-slate-300 list-decimal list-inside">
                                     <li>User wants to activate a trading account that requires age and residency verification</li>
@@ -1760,7 +1804,7 @@
                                 </ol>
                             </div>
 
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 3: Marketplace Seller Verification</h4>
                                 <ol class="space-y-2 text-slate-300 list-decimal list-inside">
                                     <li>User wants to create a seller account on a marketplace platform</li>
@@ -1783,12 +1827,12 @@
                         
                         <div class="space-y-8">
                             <!-- Authentication Button Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Authentication Button Component</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-4 md:p-6 shadow-xl max-w-md w-full">
                                         <h5 class="text-slate-900 font-semibold mb-4 text-center">Verify Your Identity</h5>
-                                        <button class="w-full bg-gradient-to-r from-sky-600 to-emerald-500 hover:from-sky-700 hover:to-emerald-600 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-3 transition-all shadow-lg">
+                                        <button class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-3 transition-all shadow-3d hover:shadow-3d-lg">
                                             <div class="bg-white/20 rounded p-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                                     <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
@@ -1803,7 +1847,7 @@
                             </div>
 
                             <!-- Bank Selection Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Bank Selection Interface</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-4 md:p-6 shadow-xl max-w-md w-full">
@@ -1842,7 +1886,7 @@
                             </div>
 
                             <!-- Bank Login Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Bank Login to Verify Identity</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full" dir="rtl">
@@ -1893,7 +1937,7 @@
                                             </div>
 
                                             <!-- Login Button -->
-                                            <button class="w-full bg-gradient-to-r from-red-600 via-red-500 to-orange-500 hover:from-red-700 hover:via-red-600 hover:to-orange-600 text-white font-semibold py-4 px-6 rounded-lg transition-all shadow-lg transform hover:scale-[1.02]">
+                                            <button class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-lg transition-all shadow-3d hover:shadow-3d-lg transform hover:scale-[1.02]">
                                                 כניסה לחשבון
                                             </button>
                                         </div>
@@ -1902,7 +1946,7 @@
                             </div>
 
                             <!-- Consent Screen Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Consent Screen - Attribute Disclosure</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full">
@@ -1944,7 +1988,7 @@
                                             <button class="flex-1 border-2 border-slate-300 hover:border-slate-400 text-slate-700 font-semibold py-3 px-6 rounded-lg transition-all">
                                                 Cancel
                                             </button>
-                                            <button class="flex-1 bg-gradient-to-r from-sky-600 to-emerald-500 hover:from-sky-700 hover:to-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-all">
+                                            <button class="flex-1 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-6 rounded-lg transition-all shadow-3d hover:shadow-3d-lg">
                                                 Approve & Continue
                                             </button>
                                         </div>
@@ -1953,7 +1997,7 @@
                             </div>
 
                             <!-- Redirect/Loading Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Redirect / Loading State</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full text-center">
@@ -1972,7 +2016,7 @@
                             </div>
 
                             <!-- Success Screen Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Success Confirmation Screen</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full text-center">
@@ -1985,7 +2029,7 @@
                                         </div>
                                         <h5 class="text-slate-900 font-semibold text-xl mb-2">Identity Verified Successfully!</h5>
                                         <p class="text-slate-500 text-sm mb-6">Your identity has been verified by your bank. You can now proceed.</p>
-                                        <button class="w-full bg-gradient-to-r from-sky-600 to-emerald-500 hover:from-sky-700 hover:to-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-all">
+                                        <button class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-6 rounded-lg transition-all shadow-3d hover:shadow-3d-lg">
                                             Continue
                                         </button>
                                     </div>
@@ -1993,7 +2037,7 @@
                             </div>
 
                             <!-- Error Handling Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Error Handling Screen</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full text-center">
@@ -2007,7 +2051,7 @@
                                         <h5 class="text-slate-900 font-semibold text-xl mb-2">Authentication Failed</h5>
                                         <p class="text-slate-500 text-sm mb-6">We couldn't verify your identity. Please try again or contact support if the problem persists.</p>
                                         <div class="space-y-3">
-                                            <button class="w-full bg-gradient-to-r from-sky-600 to-emerald-500 hover:from-sky-700 hover:to-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-all">
+                                            <button class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 px-6 rounded-lg transition-all shadow-3d hover:shadow-3d-lg">
                                                 Try Again
                                             </button>
                                             <button class="w-full border-2 border-slate-300 hover:border-slate-400 text-slate-700 font-semibold py-3 px-6 rounded-lg transition-all">
@@ -2019,7 +2063,7 @@
                             </div>
 
                             <!-- OTP Verification Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">OTP / Two-Factor Authentication</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full text-center" dir="rtl">
@@ -2041,7 +2085,7 @@
                                             <input type="text" maxlength="1" class="w-12 h-12 text-center text-2xl font-bold border-2 border-slate-300 rounded-lg focus:border-sky-500 focus:outline-none" />
                                         </div>
                                         <p class="text-slate-500 text-xs mb-4">לא קיבלת את הקוד? <a href="#" class="text-sky-600 hover:text-sky-700 font-medium">שלח שוב</a></p>
-                                        <button class="w-full bg-gradient-to-r from-red-600 via-red-500 to-orange-500 hover:from-red-700 hover:via-red-600 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all">
+                                        <button class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all shadow-3d hover:shadow-3d-lg">
                                             המשך
                                         </button>
                                     </div>
@@ -2049,7 +2093,7 @@
                             </div>
 
                             <!-- Service Integration Example Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Service Integration Example - Fintech Onboarding</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-lg w-full">
@@ -2090,7 +2134,7 @@
                             </div>
 
                             <!-- Progress Indicator Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Multi-Step Progress Indicator</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full">
@@ -2135,7 +2179,7 @@
                             </div>
 
                             <!-- Verification Status Dashboard Mockup -->
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Verification Status Dashboard</h4>
                                 <div class="bg-slate-900 rounded-lg p-4 md:p-8 flex items-center justify-center mockup-container">
                                     <div class="bg-white rounded-lg p-6 md:p-8 shadow-xl max-w-md w-full">
@@ -2183,7 +2227,7 @@
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Backend</span>
                     <h2 class="text-5xl font-bold mb-4 text-white">7. Server Side</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full"></div>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 
                 <div class="space-y-8">
@@ -2193,7 +2237,7 @@
                         </p>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-4">Server Architecture</h3>
                         <p class="text-slate-300 mb-4">
                             The server-side platform is built on a microservices architecture, ensuring scalability, security, and regulatory compliance. The system integrates with OpenFinance.ai for bank connectivity and implements OAuth 2.0 / OpenID Connect standards. Microservices communicate via REST APIs for synchronous operations and RabbitMQ for asynchronous event-driven processing.
@@ -2213,7 +2257,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-4">Microservices & Modules</h3>
                         <div class="grid md:grid-cols-2 gap-4">
                             <div class="bg-slate-900/50 rounded-lg p-4">
@@ -2243,7 +2287,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-4">Technology Stack</h3>
                         <div class="grid md:grid-cols-2 gap-4">
                             <div>
@@ -2272,7 +2316,7 @@
                     <div>
                         <h3 class="text-2xl font-semibold text-white mb-4">7.1. API</h3>
                         <div class="space-y-6">
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">OAuth 2.0 / OpenID Connect Endpoints</h4>
                                 <div class="space-y-3 font-mono text-sm">
                                     <div class="bg-slate-900/50 rounded p-3">
@@ -2298,7 +2342,7 @@
                                 </div>
                             </div>
 
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Identity Verification Endpoints</h4>
                                 <div class="space-y-3 font-mono text-sm">
                                     <div class="bg-slate-900/50 rounded p-3">
@@ -2316,7 +2360,7 @@
                                 </div>
                             </div>
 
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Service Management Endpoints</h4>
                                 <div class="space-y-3 font-mono text-sm">
                                     <div class="bg-slate-900/50 rounded p-3">
@@ -2330,7 +2374,7 @@
                                 </div>
                             </div>
 
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">Audit & Compliance Endpoints</h4>
                                 <div class="space-y-3 font-mono text-sm">
                                     <div class="bg-slate-900/50 rounded p-3">
@@ -2344,7 +2388,7 @@
                                 </div>
                             </div>
 
-                            <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                            <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">API Authentication</h4>
                                 <p class="text-slate-300">
                                     All API endpoints require authentication using API keys or OAuth 2.0 client credentials. Services must register and obtain API credentials before accessing the platform.
@@ -2362,7 +2406,7 @@
                 <h2 class="text-4xl font-bold mb-8 text-white">8. References</h2>
                 
                 <div class="space-y-6">
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-4">Technologies & Standards</h3>
                         <ul class="space-y-2 text-slate-300">
                             <li><strong class="text-white">OAuth 2.0 (RFC 6749):</strong> Authorization framework for secure authentication flows</li>
@@ -2376,7 +2420,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-4">Regulatory & Compliance</h3>
                         <ul class="space-y-2 text-slate-300">
                             <li><strong class="text-white">KYC (Know Your Customer):</strong> Customer identification requirements</li>
@@ -2386,7 +2430,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-4">Related Products & Solutions</h3>
                         <ul class="space-y-2 text-slate-300">
                             <li><strong class="text-white">OpenFinance.ai:</strong> Open Banking platform providing secure bank connectivity and API integration</li>
@@ -2398,7 +2442,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700">
+                    <div class="card-3d rounded-lg p-6 shadow-3d">
                         <h3 class="text-2xl font-semibold text-white mb-4">Security Standards</h3>
                         <ul class="space-y-2 text-slate-300">
                             <li><strong class="text-white">TLS/SSL:</strong> Transport layer security for encrypted communication</li>
@@ -2415,7 +2459,7 @@
         <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-900">
             <div class="max-w-4xl mx-auto text-center">
                 <div class="flex items-center justify-center gap-3 mb-4">
-                    <div class="bg-gradient-to-br from-sky-400 to-emerald-400 w-8 h-8 rounded-lg flex items-center justify-center">
+                    <div class="icon-3d w-8 h-8 rounded-lg flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
