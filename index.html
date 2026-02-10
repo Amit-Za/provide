@@ -177,12 +177,14 @@
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="#project-description" class="nav-link text-sm font-medium">Project Description</a>
-                    <a href="#related-work" class="nav-link text-sm font-medium">Related Work</a>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#project-description" class="nav-link text-sm font-medium">Overview</a>
+                    <a href="#related-work" class="nav-link text-sm font-medium">Research</a>
                     <a href="#functional-description" class="nav-link text-sm font-medium">Requirements</a>
+                    <a href="#use-cases" class="nav-link text-sm font-medium">Use Cases</a>
                     <a href="#architecture" class="nav-link text-sm font-medium">Architecture</a>
                     <a href="#work-plan" class="nav-link text-sm font-medium">Work Plan</a>
+                    <a href="#poc" class="nav-link text-sm font-medium">POC</a>
                     <a href="#client-side" class="nav-link text-sm font-medium">Client Side</a>
                     <a href="#server-side" class="nav-link text-sm font-medium">Server Side</a>
                     <a href="#references" class="nav-link text-sm font-medium">References</a>
@@ -200,11 +202,13 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-900/98">
             <div class="px-4 py-4 space-y-3">
-                <a href="#project-description" class="block nav-link text-sm font-medium py-2">Project Description</a>
-                <a href="#related-work" class="block nav-link text-sm font-medium py-2">Related Work</a>
+                <a href="#project-description" class="block nav-link text-sm font-medium py-2">Overview</a>
+                <a href="#related-work" class="block nav-link text-sm font-medium py-2">Research</a>
                 <a href="#functional-description" class="block nav-link text-sm font-medium py-2">Requirements</a>
+                <a href="#use-cases" class="block nav-link text-sm font-medium py-2">Use Cases</a>
                 <a href="#architecture" class="block nav-link text-sm font-medium py-2">Architecture</a>
                 <a href="#work-plan" class="block nav-link text-sm font-medium py-2">Work Plan</a>
+                <a href="#poc" class="block nav-link text-sm font-medium py-2">POC</a>
                 <a href="#client-side" class="block nav-link text-sm font-medium py-2">Client Side</a>
                 <a href="#server-side" class="block nav-link text-sm font-medium py-2">Server Side</a>
                 <a href="#references" class="block nav-link text-sm font-medium py-2">References</a>
@@ -588,12 +592,343 @@
             </div>
         </section>
 
+        <!-- Detailed Use Cases -->
+        <section id="use-cases" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12">
+                    <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Scenarios</span>
+                    <h2 class="text-5xl font-bold mb-4 text-white">4. Use Cases</h2>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
+                    <p class="text-lg text-slate-400 mt-4 max-w-3xl">
+                        Detailed scenarios covering the main user journeys, edge cases, and action paths within the ProvIDe platform.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- UC-1: New User Identity Verification -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                                <span class="text-emerald-400 font-bold text-lg">1</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">UC-1: New User Identity Verification</h3>
+                                <p class="text-sm text-slate-400">Primary flow — First-time bank-verified identity</p>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-4 mb-6 text-sm">
+                            <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Actor</p>
+                                <p class="text-white font-medium">End User</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Precondition</p>
+                                <p class="text-white font-medium">Active bank account at a supported bank</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Postcondition</p>
+                                <p class="text-white font-medium">Signed identity assertion issued to service</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-sky-400">Main Flow (Happy Path)</h4>
+                            <ol class="space-y-3 text-slate-300 list-decimal list-inside">
+                                <li>User visits a third-party service and clicks <strong class="text-white">"Verify Identity via Bank"</strong></li>
+                                <li>Service redirects user to ProvIDe OAuth authorization endpoint with requested scopes (e.g., <code class="text-emerald-400">name</code>, <code class="text-emerald-400">age</code>, <code class="text-emerald-400">country</code>)</li>
+                                <li>ProvIDe validates the service's <code class="text-emerald-400">client_id</code>, <code class="text-emerald-400">redirect_uri</code>, and requested scopes</li>
+                                <li>User is presented with bank selection screen showing supported banks</li>
+                                <li>User selects their bank and is redirected to the bank's authentication page via OpenFinance.ai</li>
+                                <li>User authenticates with Strong Customer Authentication (SCA): password + OTP/biometrics</li>
+                                <li>Bank verifies user identity and returns confirmation to ProvIDe via OpenFinance.ai callback</li>
+                                <li>ProvIDe displays consent screen showing exactly which attributes will be shared</li>
+                                <li>User reviews and approves the consent request</li>
+                                <li>ProvIDe generates a cryptographically signed JWT identity assertion</li>
+                                <li>User is redirected back to the service with an authorization code</li>
+                                <li>Service exchanges the authorization code for access token and ID token</li>
+                                <li>Service receives verified identity attributes — account is created/verified</li>
+                            </ol>
+                            <h4 class="text-lg font-semibold text-amber-400 mt-6">Alternative Flows</h4>
+                            <div class="space-y-3 text-sm text-slate-300">
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                    <p class="font-semibold text-white mb-1">4a. Invalid Service Credentials</p>
+                                    <p>If <code class="text-emerald-400">client_id</code> or <code class="text-emerald-400">redirect_uri</code> is invalid, user is shown an error page. Event is logged to audit system.</p>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                    <p class="font-semibold text-white mb-1">6a. Bank Authentication Fails</p>
+                                    <p>If user enters incorrect credentials, the bank handles retry logic. After max attempts, bank redirects back with an error. ProvIDe shows a user-friendly error with "Try Again" option.</p>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                    <p class="font-semibold text-white mb-1">9a. User Denies Consent</p>
+                                    <p>If user clicks "Cancel" on the consent screen, ProvIDe redirects back to service with <code class="text-emerald-400">error=access_denied</code>. No data is shared. Event is logged.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UC-2: Returning User Re-authentication -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-sky-500/20 rounded-lg flex items-center justify-center">
+                                <span class="text-sky-400 font-bold text-lg">2</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">UC-2: Returning User Re-authentication</h3>
+                                <p class="text-sm text-slate-400">Streamlined flow — Previously verified user</p>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-4 mb-6 text-sm">
+                            <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Actor</p>
+                                <p class="text-white font-medium">Previously verified user</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Precondition</p>
+                                <p class="text-white font-medium">Existing verification record with active consent</p>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <p class="text-slate-400 text-xs uppercase tracking-wider mb-1">Postcondition</p>
+                                <p class="text-white font-medium">New token issued using existing consent</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-sky-400">Main Flow</h4>
+                            <ol class="space-y-3 text-slate-300 list-decimal list-inside">
+                                <li>User returns to a service where they previously verified identity</li>
+                                <li>Service redirects user to ProvIDe OAuth endpoint with same scopes</li>
+                                <li>ProvIDe detects existing active consent for this user-service pair</li>
+                                <li>User is redirected to bank for re-authentication (SCA required each session)</li>
+                                <li>Bank confirms identity; ProvIDe refreshes verification timestamp</li>
+                                <li>ProvIDe skips consent screen (consent already granted for requested scopes)</li>
+                                <li>New authorization code issued; user redirected to service</li>
+                                <li>Service exchanges code for fresh tokens</li>
+                            </ol>
+                            <h4 class="text-lg font-semibold text-amber-400 mt-6">Alternative Flows</h4>
+                            <div class="space-y-3 text-sm text-slate-300">
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                    <p class="font-semibold text-white mb-1">3a. Consent Expired</p>
+                                    <p>If the previous consent has expired, user is shown the consent screen again to re-authorize.</p>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                    <p class="font-semibold text-white mb-1">3b. Service Requests Additional Scopes</p>
+                                    <p>If the service now requests additional attributes beyond the original consent, user is shown an incremental consent screen for the new scopes only.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UC-3: Consent Revocation -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                <span class="text-purple-400 font-bold text-lg">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">UC-3: Consent Revocation</h3>
+                                <p class="text-sm text-slate-400">User withdraws data sharing consent</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-sky-400">Main Flow</h4>
+                            <ol class="space-y-3 text-slate-300 list-decimal list-inside">
+                                <li>User accesses the ProvIDe verification dashboard (or service's settings page)</li>
+                                <li>Dashboard displays all active consent grants with service names and shared attributes</li>
+                                <li>User selects a service and clicks <strong class="text-white">"Revoke Access"</strong></li>
+                                <li>ProvIDe displays confirmation dialog showing what will happen upon revocation</li>
+                                <li>User confirms revocation</li>
+                                <li>ProvIDe sets <code class="text-emerald-400">consent_revoked_at</code> timestamp on the authorization record</li>
+                                <li>All active tokens for this user-service pair are revoked immediately</li>
+                                <li>Token revocation event broadcast via RabbitMQ to all services</li>
+                                <li>Audit log entry created with revocation details</li>
+                                <li>Service is notified and can no longer access user's identity assertions</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- UC-4: Service Registration -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
+                                <span class="text-amber-400 font-bold text-lg">4</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">UC-4: Third-Party Service Registration</h3>
+                                <p class="text-sm text-slate-400">Service developer onboarding and integration</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-sky-400">Main Flow</h4>
+                            <ol class="space-y-3 text-slate-300 list-decimal list-inside">
+                                <li>Service developer registers on the ProvIDe developer portal</li>
+                                <li>Developer provides: service name, website URL, redirect URIs, required scopes justification</li>
+                                <li>ProvIDe admin reviews and approves the registration request</li>
+                                <li>Upon approval, ProvIDe generates <code class="text-emerald-400">client_id</code> and <code class="text-emerald-400">client_secret</code></li>
+                                <li>Developer receives credentials and integration documentation</li>
+                                <li>Developer integrates the ProvIDe authentication button into their service</li>
+                                <li>Developer tests the integration in sandbox environment</li>
+                                <li>Service goes live after successful testing</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- UC-5: Connection Failure & Recovery -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
+                                <span class="text-red-400 font-bold text-lg">5</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">UC-5: Connection Failure & Recovery</h3>
+                                <p class="text-sm text-slate-400">Handling bank connectivity issues and errors</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-sky-400">Failure Scenarios</h4>
+                            <div class="space-y-4">
+                                <div class="bg-slate-900/50 rounded-lg p-5 border border-red-500/30">
+                                    <h5 class="text-white font-semibold mb-2">Scenario A: Bank Service Unavailable</h5>
+                                    <ol class="space-y-2 text-slate-300 text-sm list-decimal list-inside">
+                                        <li>User selects their bank during identity verification</li>
+                                        <li>ProvIDe attempts to connect to bank via OpenFinance.ai</li>
+                                        <li>Connection fails (bank server down, maintenance, network issue)</li>
+                                        <li>ProvIDe logs the failure with timestamp, bank ID, error code, and correlation ID</li>
+                                        <li>Circuit breaker activates if failure rate exceeds threshold</li>
+                                        <li>User is shown a clear error message: <em class="text-slate-400">"Your bank is temporarily unavailable. Please try again later or select a different bank."</em></li>
+                                        <li>User can retry or choose an alternative bank</li>
+                                    </ol>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-5 border border-amber-500/30">
+                                    <h5 class="text-white font-semibold mb-2">Scenario B: Timeout During Bank Authentication</h5>
+                                    <ol class="space-y-2 text-slate-300 text-sm list-decimal list-inside">
+                                        <li>User is redirected to bank login page</li>
+                                        <li>User takes too long or the bank session expires (configurable timeout: 5 minutes)</li>
+                                        <li>Bank returns timeout error to OpenFinance.ai callback</li>
+                                        <li>ProvIDe receives timeout callback, logs the event</li>
+                                        <li>User is shown a timeout message with option to restart the process</li>
+                                        <li>No partial data is stored; session state is cleaned up</li>
+                                    </ol>
+                                </div>
+                                <div class="bg-slate-900/50 rounded-lg p-5 border border-purple-500/30">
+                                    <h5 class="text-white font-semibold mb-2">Scenario C: OpenFinance.ai Callback Failure</h5>
+                                    <ol class="space-y-2 text-slate-300 text-sm list-decimal list-inside">
+                                        <li>Bank successfully authenticates user</li>
+                                        <li>OpenFinance.ai callback to ProvIDe fails (network issue, ProvIDe server error)</li>
+                                        <li>OpenFinance.ai retries callback up to 3 times with exponential backoff</li>
+                                        <li>If all retries fail, event is queued in dead-letter queue for manual review</li>
+                                        <li>User is shown an error with instructions to try again</li>
+                                        <li>ProvIDe support team is alerted via monitoring system</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <h4 class="text-lg font-semibold text-sky-400 mt-6">Responsibility Matrix</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm text-slate-300 mt-3">
+                                    <thead class="text-xs text-slate-400 border-b border-slate-700">
+                                        <tr>
+                                            <th class="px-3 py-2 text-left">Failure Type</th>
+                                            <th class="px-3 py-2 text-left">Responsibility</th>
+                                            <th class="px-3 py-2 text-left">ProvIDe Action</th>
+                                            <th class="px-3 py-2 text-left">Monitoring</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-700">
+                                        <tr>
+                                            <td class="px-3 py-2">Bank authentication failure</td>
+                                            <td class="px-3 py-2 text-amber-400">Bank</td>
+                                            <td class="px-3 py-2">Show error, log event, offer retry</td>
+                                            <td class="px-3 py-2">Failure rate per bank</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-3 py-2">Bank service unavailable</td>
+                                            <td class="px-3 py-2 text-amber-400">Bank / OpenFinance</td>
+                                            <td class="px-3 py-2">Circuit breaker, suggest alternative bank</td>
+                                            <td class="px-3 py-2">Health check, uptime monitoring</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-3 py-2">OpenFinance.ai API error</td>
+                                            <td class="px-3 py-2 text-amber-400">OpenFinance.ai</td>
+                                            <td class="px-3 py-2">Retry with backoff, alert ops team</td>
+                                            <td class="px-3 py-2">API response time, error rates</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-3 py-2">ProvIDe internal error</td>
+                                            <td class="px-3 py-2 text-sky-400">ProvIDe</td>
+                                            <td class="px-3 py-2">Graceful error page, auto-recovery</td>
+                                            <td class="px-3 py-2">Error logs, health checks</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-3 py-2">Network timeout</td>
+                                            <td class="px-3 py-2 text-slate-400">Shared</td>
+                                            <td class="px-3 py-2">Timeout handling, session cleanup</td>
+                                            <td class="px-3 py-2">Latency metrics, timeout counts</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UC-6: Token Refresh -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+                                <span class="text-cyan-400 font-bold text-lg">6</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">UC-6: Token Refresh & Expiration</h3>
+                                <p class="text-sm text-slate-400">Service refreshes expired access tokens</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-sky-400">Main Flow</h4>
+                            <ol class="space-y-3 text-slate-300 list-decimal list-inside">
+                                <li>Service's access token expires (after 15 minutes)</li>
+                                <li>Service sends refresh token to ProvIDe token endpoint</li>
+                                <li>ProvIDe validates refresh token hash, checks expiration and revocation status</li>
+                                <li>If valid: new access token and new refresh token issued (rotation)</li>
+                                <li>Old refresh token is invalidated (single-use)</li>
+                                <li>If refresh token is expired or revoked: service receives <code class="text-emerald-400">error=invalid_grant</code></li>
+                                <li>Service must redirect user through full authentication flow again</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- UC-7: Verification for Multiple Services -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                                <span class="text-emerald-400 font-bold text-lg">7</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">UC-7: Multi-Service Verification</h3>
+                                <p class="text-sm text-slate-400">User uses bank identity across multiple services</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-sky-400">Main Flow</h4>
+                            <ol class="space-y-3 text-slate-300 list-decimal list-inside">
+                                <li>User has already verified identity with Service A (e.g., fintech app)</li>
+                                <li>User now visits Service B (e.g., trading platform) and initiates verification</li>
+                                <li>ProvIDe recognizes the user from previous bank verification</li>
+                                <li>User authenticates with bank (SCA required per session)</li>
+                                <li>ProvIDe presents consent screen specific to Service B's requested scopes</li>
+                                <li>User approves — a separate authorization record is created for Service B</li>
+                                <li>Each service has independent consent and tokens; revoking one does not affect the other</li>
+                            </ol>
+                            <div class="bg-slate-900/50 rounded-lg p-4 border border-slate-700 mt-4">
+                                <p class="text-sm text-slate-300"><strong class="text-white">Key Principle:</strong> Each service receives only the attributes it requested and the user approved. Service A cannot see Service B's consent or data, and vice versa. This ensures data minimization and scope isolation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Architecture -->
-        <section id="architecture" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
+        <section id="architecture" class="py-24 px-4 sm:px-6 lg:px-8">
             <div class="max-w-5xl mx-auto">
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">System Design</span>
-                    <h2 class="text-5xl font-bold mb-4 text-white">4. Architecture</h2>
+                    <h2 class="text-5xl font-bold mb-4 text-white">5. Architecture</h2>
                     <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                     <p class="text-lg text-slate-400 mt-4 max-w-3xl">
                         Built on industry-standard protocols with a microservices architecture designed for security, scalability, and regulatory compliance.
@@ -790,7 +1125,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-semibold text-white mb-6">4.1. Each Module Description</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-6">5.1. Each Module Description</h3>
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="card-3d rounded-xl p-6 shadow-3d hover-lift">
                                 <div class="flex items-center gap-3 mb-3">
@@ -1080,6 +1415,18 @@
                                                     <td class="px-3 py-2">Account creation timestamp</td>
                                                 </tr>
                                                 <tr>
+                                                    <td class="px-3 py-2 font-mono text-emerald-400">verification_expires_at</td>
+                                                    <td class="px-3 py-2 font-mono">TIMESTAMP</td>
+                                                    <td class="px-3 py-2">NULL</td>
+                                                    <td class="px-3 py-2">Verification validity expiration (GDPR data retention)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-3 py-2 font-mono text-emerald-400">data_retention_until</td>
+                                                    <td class="px-3 py-2 font-mono">TIMESTAMP</td>
+                                                    <td class="px-3 py-2">NOT NULL</td>
+                                                    <td class="px-3 py-2">Maximum date until which user record may be retained</td>
+                                                </tr>
+                                                <tr>
                                                     <td class="px-3 py-2 font-mono text-emerald-400">updated_at</td>
                                                     <td class="px-3 py-2 font-mono">TIMESTAMP</td>
                                                     <td class="px-3 py-2">NOT NULL, DEFAULT NOW()</td>
@@ -1089,8 +1436,7 @@
                                         </table>
                                     </div>
                                     <p class="text-xs text-slate-400 mt-3">
-                                        <strong>Note:</strong> No PII stored. Only verification status and bank reference.
-                                    </p>
+                                        <strong>Note:</strong> No PII stored. Only verification status and bank reference. All records have explicit retention expiration per GDPR requirements.</p>
                                 </div>
 
                                 <!-- Services Table -->
@@ -1221,6 +1567,18 @@
                                                     <td class="px-3 py-2">Consent revocation timestamp</td>
                                                 </tr>
                                                 <tr>
+                                                    <td class="px-3 py-2 font-mono text-emerald-400">consent_expires_at</td>
+                                                    <td class="px-3 py-2 font-mono">TIMESTAMP</td>
+                                                    <td class="px-3 py-2">NOT NULL</td>
+                                                    <td class="px-3 py-2">Consent validity expiration; re-consent required after this date</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-3 py-2 font-mono text-emerald-400">storable_attributes</td>
+                                                    <td class="px-3 py-2 font-mono">JSONB</td>
+                                                    <td class="px-3 py-2">NOT NULL</td>
+                                                    <td class="px-3 py-2">Per-attribute boolean indicating what data the service may store (e.g., {"name": true, "age": true, "id_number": false})</td>
+                                                </tr>
+                                                <tr>
                                                     <td class="px-3 py-2 font-mono text-emerald-400">status</td>
                                                     <td class="px-3 py-2 font-mono">ENUM</td>
                                                     <td class="px-3 py-2">NOT NULL, DEFAULT 'active'</td>
@@ -1229,6 +1587,9 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <p class="text-xs text-slate-400 mt-3">
+                                        <strong>GDPR:</strong> The <code class="text-emerald-400">storable_attributes</code> column explicitly records which attributes the service is permitted to store vs. only view transiently. <code class="text-emerald-400">consent_expires_at</code> enforces time-limited consent per GDPR data minimization requirements.
+                                    </p>
                                 </div>
 
                                 <!-- Tokens Table -->
@@ -1468,6 +1829,186 @@
                             </div>
                         </div>
 
+                        <!-- Data Retention & GDPR Compliance -->
+                        <div class="mb-8">
+                            <h4 class="text-xl font-semibold text-sky-400 mb-4">Data Retention & GDPR Compliance</h4>
+                            <div class="bg-slate-900/50 rounded-lg p-6 border border-emerald-500/30 mb-6">
+                                <h5 class="text-lg font-semibold text-white mb-3">Core Principles</h5>
+                                <p class="text-slate-300 text-sm mb-4">
+                                    ProvIDe is designed around GDPR data minimization. The platform does <strong class="text-white">not</strong> store any PII, identity documents, financial data, or bank credentials. Only the minimum metadata required for verification orchestration is retained.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="font-semibold text-emerald-400 mb-2 text-sm">Data We Store</p>
+                                        <ul class="text-sm text-slate-300 space-y-1">
+                                            <li class="flex items-start gap-2"><span class="text-emerald-400">&#10003;</span> Bank-provided user ID (hashed)</li>
+                                            <li class="flex items-start gap-2"><span class="text-emerald-400">&#10003;</span> Verification status and timestamps</li>
+                                            <li class="flex items-start gap-2"><span class="text-emerald-400">&#10003;</span> Consent records (scopes, expiration)</li>
+                                            <li class="flex items-start gap-2"><span class="text-emerald-400">&#10003;</span> Token hashes (SHA-256, not actual tokens)</li>
+                                            <li class="flex items-start gap-2"><span class="text-emerald-400">&#10003;</span> Audit log entries</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-red-400 mb-2 text-sm">Data We Never Store</p>
+                                        <ul class="text-sm text-slate-300 space-y-1">
+                                            <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> User's real name, address, or ID number</li>
+                                            <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> Identity documents or photos</li>
+                                            <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> Bank login credentials</li>
+                                            <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> Financial account data</li>
+                                            <li class="flex items-start gap-2"><span class="text-red-400">&#10007;</span> Actual JWT tokens (only hashes)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-6 border border-slate-700 mb-6">
+                                <h5 class="text-lg font-semibold text-white mb-3">Storable Attributes Flag (per Authorization)</h5>
+                                <p class="text-slate-300 text-sm mb-4">
+                                    Each authorization record includes a <code class="text-emerald-400">storable_attributes</code> JSONB column that explicitly defines, per attribute, whether the third-party service is permitted to store the data or may only use it transiently during the session.
+                                </p>
+                                <div class="bg-slate-800 rounded p-4 font-mono text-xs overflow-x-auto">
+                                    <div class="text-slate-400">// Example storable_attributes value:</div>
+                                    <div class="text-slate-200 mt-1">{</div>
+                                    <div class="text-slate-200 ml-4">"full_name": <span class="text-emerald-400">true</span>,&nbsp;&nbsp;&nbsp;<span class="text-slate-500">// Service may store</span></div>
+                                    <div class="text-slate-200 ml-4">"age_verified": <span class="text-emerald-400">true</span>,&nbsp;<span class="text-slate-500">// Service may store</span></div>
+                                    <div class="text-slate-200 ml-4">"country": <span class="text-emerald-400">true</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500">// Service may store</span></div>
+                                    <div class="text-slate-200 ml-4">"id_number": <span class="text-red-400">false</span>,&nbsp;&nbsp;&nbsp;<span class="text-slate-500">// Transient only, must not be stored</span></div>
+                                    <div class="text-slate-200 ml-4">"date_of_birth": <span class="text-red-400">false</span>&nbsp;<span class="text-slate-500">// Transient only, must not be stored</span></div>
+                                    <div class="text-slate-200">}</div>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-6 border border-slate-700">
+                                <h5 class="text-lg font-semibold text-white mb-3">Expiration & Retention Policies</h5>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm text-slate-300">
+                                        <thead class="text-xs text-slate-400 border-b border-slate-700">
+                                            <tr>
+                                                <th class="px-3 py-2 text-left">Data Type</th>
+                                                <th class="px-3 py-2 text-left">Retention Period</th>
+                                                <th class="px-3 py-2 text-left">Expiration Field</th>
+                                                <th class="px-3 py-2 text-left">Cleanup Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-slate-700">
+                                            <tr>
+                                                <td class="px-3 py-2">User verification records</td>
+                                                <td class="px-3 py-2">90 days after last verification</td>
+                                                <td class="px-3 py-2 font-mono text-emerald-400">users.data_retention_until</td>
+                                                <td class="px-3 py-2">Anonymize or delete record</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-3 py-2">Consent records</td>
+                                                <td class="px-3 py-2">Until revoked or expired</td>
+                                                <td class="px-3 py-2 font-mono text-emerald-400">authorizations.consent_expires_at</td>
+                                                <td class="px-3 py-2">Set status to 'expired'</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-3 py-2">Access tokens</td>
+                                                <td class="px-3 py-2">15 minutes</td>
+                                                <td class="px-3 py-2 font-mono text-emerald-400">tokens.expires_at</td>
+                                                <td class="px-3 py-2">Automatic expiration (JWT stateless)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-3 py-2">Refresh tokens</td>
+                                                <td class="px-3 py-2">30 days (single-use)</td>
+                                                <td class="px-3 py-2 font-mono text-emerald-400">tokens.expires_at</td>
+                                                <td class="px-3 py-2">Delete hash from database</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-3 py-2">Audit logs</td>
+                                                <td class="px-3 py-2">7 years (regulatory)</td>
+                                                <td class="px-3 py-2 font-mono text-emerald-400">audit_logs.created_at + 7y</td>
+                                                <td class="px-3 py-2">Archive to cold storage</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-3 py-2">Signing keys</td>
+                                                <td class="px-3 py-2">90-day rotation cycle</td>
+                                                <td class="px-3 py-2 font-mono text-emerald-400">JWKS key rotation</td>
+                                                <td class="px-3 py-2">Rotate key, keep old for validation window</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Failure Handling & Recovery -->
+                        <div class="mb-8">
+                            <h4 class="text-xl font-semibold text-sky-400 mb-4">Failure Handling & Recovery Architecture</h4>
+                            <div class="bg-slate-900/50 rounded-lg p-6 border border-slate-700 mb-6">
+                                <h5 class="text-lg font-semibold text-white mb-3">Error Response Strategy</h5>
+                                <p class="text-slate-300 text-sm mb-4">
+                                    All failures are handled gracefully with clear user feedback, comprehensive logging, and automatic recovery where possible. The platform distinguishes between errors that are the bank's responsibility, OpenFinance.ai's responsibility, and ProvIDe's own errors.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                                        <h6 class="text-white font-semibold mb-2 text-sm">Circuit Breaker Pattern</h6>
+                                        <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+                                            <li>Per-bank circuit breaker monitors failure rates</li>
+                                            <li>Opens after 5 consecutive failures or >50% failure rate in 60s</li>
+                                            <li>Half-open state: allows 1 test request every 30s</li>
+                                            <li>Prevents cascading failures from a single bank outage</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                                        <h6 class="text-white font-semibold mb-2 text-sm">Retry Policy</h6>
+                                        <ul class="text-xs text-slate-300 space-y-1 list-disc list-inside">
+                                            <li>Exponential backoff: 1s, 2s, 4s (max 3 retries)</li>
+                                            <li>Idempotency keys prevent duplicate operations</li>
+                                            <li>Failed callbacks queued in dead-letter queue</li>
+                                            <li>Manual retry available for ops team via admin panel</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/50 rounded-lg p-6 border border-slate-700 mb-6">
+                                <h5 class="text-lg font-semibold text-white mb-3">Monitoring & Logging</h5>
+                                <p class="text-slate-300 text-sm mb-4">
+                                    Every failure event is logged with a structured format for monitoring, alerting, and post-incident analysis.
+                                </p>
+                                <div class="bg-slate-800 rounded p-4 font-mono text-xs overflow-x-auto">
+                                    <div class="text-slate-400">// Example failure log entry:</div>
+                                    <div class="text-slate-200 mt-1">{</div>
+                                    <div class="text-slate-200 ml-4">"timestamp": "2025-06-15T14:30:00Z",</div>
+                                    <div class="text-slate-200 ml-4">"correlation_id": "req-abc123",</div>
+                                    <div class="text-slate-200 ml-4">"event_type": "bank_auth_failure",</div>
+                                    <div class="text-slate-200 ml-4">"bank_id": 12,</div>
+                                    <div class="text-slate-200 ml-4">"error_code": "BANK_TIMEOUT",</div>
+                                    <div class="text-slate-200 ml-4">"error_source": "openfinance_callback",</div>
+                                    <div class="text-slate-200 ml-4">"retry_count": 2,</div>
+                                    <div class="text-slate-200 ml-4">"circuit_breaker_state": "closed",</div>
+                                    <div class="text-slate-200 ml-4">"user_action": "retry_offered",</div>
+                                    <div class="text-slate-200 ml-4">"response_time_ms": 5000</div>
+                                    <div class="text-slate-200">}</div>
+                                </div>
+                                <div class="mt-4 grid md:grid-cols-3 gap-3 text-xs">
+                                    <div class="bg-slate-800/50 rounded p-3 border border-slate-700">
+                                        <p class="text-white font-semibold mb-1">Alerting Thresholds</p>
+                                        <ul class="text-slate-300 space-y-1">
+                                            <li>Bank failure rate > 10%: Warning</li>
+                                            <li>Bank failure rate > 50%: Critical</li>
+                                            <li>ProvIDe error rate > 1%: Critical</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-slate-800/50 rounded p-3 border border-slate-700">
+                                        <p class="text-white font-semibold mb-1">Log Destinations</p>
+                                        <ul class="text-slate-300 space-y-1">
+                                            <li>Structured logs (JSON) to Loki</li>
+                                            <li>Audit events to PostgreSQL</li>
+                                            <li>Metrics to Prometheus</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-slate-800/50 rounded p-3 border border-slate-700">
+                                        <p class="text-white font-semibold mb-1">Dashboards</p>
+                                        <ul class="text-slate-300 space-y-1">
+                                            <li>Per-bank health status</li>
+                                            <li>Verification success/failure rates</li>
+                                            <li>API latency percentiles</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Security Architecture -->
                         <div class="mb-8">
                             <h4 class="text-xl font-semibold text-sky-400 mb-4">Security Architecture Details</h4>
@@ -1666,11 +2207,11 @@
         </section>
 
         <!-- Work Plan -->
-        <section id="work-plan" class="py-24 px-4 sm:px-6 lg:px-8">
+        <section id="work-plan" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
             <div class="max-w-5xl mx-auto">
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Execution</span>
-                    <h2 class="text-5xl font-bold mb-4 text-white">5. Work Plan</h2>
+                    <h2 class="text-5xl font-bold mb-4 text-white">6. Work Plan</h2>
                     <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 
@@ -1745,12 +2286,200 @@
             </div>
         </section>
 
+        <!-- Proof of Concept -->
+        <section id="poc" class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12">
+                    <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Validation</span>
+                    <h2 class="text-5xl font-bold mb-4 text-white">7. Proof of Concept</h2>
+                    <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
+                    <p class="text-lg text-slate-400 mt-4 max-w-3xl">
+                        The POC targets the most challenging end-to-end path to prove system viability and architectural resilience.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- POC Objective -->
+                    <div class="card-3d rounded-2xl p-8 shadow-3d-lg">
+                        <h3 class="text-2xl font-semibold text-white mb-4">Objective</h3>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            Demonstrate a complete, working identity verification flow from a third-party service through ProvIDe to a bank via OpenFinance.ai and back — including OAuth authorization, bank authentication, consent capture, JWT assertion generation, and token exchange. This validates the core architectural decisions and proves the platform can deliver bank-verified identity in a real-world scenario.
+                        </p>
+                    </div>
+
+                    <!-- Most Challenging Path -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Critical Path: End-to-End Bank Verification</h3>
+                        </div>
+                        <p class="text-slate-300 mb-6">
+                            The POC focuses on the most challenging and critical path — a complete OAuth 2.0 Authorization Code Flow with PKCE, bank authentication via OpenFinance.ai, and signed JWT identity assertion delivery. This path exercises every core component.
+                        </p>
+                        <div class="bg-slate-900/50 rounded-lg p-6 border border-slate-700">
+                            <h4 class="text-lg font-semibold text-sky-400 mb-4">POC Flow Steps</h4>
+                            <ol class="space-y-3 text-slate-300 list-decimal list-inside">
+                                <li><strong class="text-white">Service initiates OAuth request</strong> — Demo client sends authorization request with PKCE challenge and requested scopes</li>
+                                <li><strong class="text-white">ProvIDe validates and redirects</strong> — OAuth Authorization Server validates parameters, redirects to bank selection</li>
+                                <li><strong class="text-white">Bank authentication via OpenFinance.ai</strong> — User authenticates with bank through OpenFinance.ai sandbox/test environment</li>
+                                <li><strong class="text-white">Callback handling</strong> — ProvIDe processes OpenFinance.ai callback, extracts verified identity data</li>
+                                <li><strong class="text-white">Consent capture</strong> — User reviews and approves identity attributes for sharing</li>
+                                <li><strong class="text-white">JWT assertion generation</strong> — Identity Assertion Engine creates RS256-signed JWT with verified claims</li>
+                                <li><strong class="text-white">Token exchange</strong> — Demo client exchanges authorization code for access token + ID token</li>
+                                <li><strong class="text-white">Assertion validation</strong> — Demo client validates JWT signature using JWKS endpoint</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- POC Scope -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <h3 class="text-2xl font-semibold text-white mb-6">POC Scope & Deliverables</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-lg font-semibold text-emerald-400 mb-3">Included in POC</h4>
+                                <ul class="space-y-2 text-slate-300 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>OAuth 2.0 Authorization Code Flow with PKCE</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>OpenFinance.ai integration (sandbox environment)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>Bank selection and authentication redirect</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>Consent screen with attribute selection</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>JWT identity assertion generation (RS256)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>Token exchange endpoint</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>JWKS endpoint for public key distribution</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>PostgreSQL database with core schema</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>Basic audit logging</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-emerald-400 mt-0.5">&#10003;</span>
+                                        <span>Demo client application for end-to-end testing</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-slate-400 mb-3">Deferred to Full Implementation</h4>
+                                <ul class="space-y-2 text-slate-300 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>Full microservices separation (POC uses monolith)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>RabbitMQ async messaging</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>Redis caching and rate limiting</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>Docker containerization</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>NGINX load balancing</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>Full GDPR compliance mechanisms</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>Key rotation and HSM integration</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>Production-grade monitoring (Prometheus/Grafana)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-slate-500 mt-0.5">&#9675;</span>
+                                        <span>Full RTL Hebrew UI</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Success Criteria -->
+                    <div class="card-3d rounded-xl p-8 shadow-3d-lg">
+                        <h3 class="text-2xl font-semibold text-white mb-6">Success Criteria</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span class="text-emerald-400 font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">End-to-End Flow Completion</p>
+                                    <p class="text-slate-300 text-sm">A demo client can successfully complete the full identity verification flow from OAuth authorization through bank authentication to receiving a valid signed JWT.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span class="text-emerald-400 font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">JWT Integrity & Validation</p>
+                                    <p class="text-slate-300 text-sm">The issued JWT can be cryptographically verified using the JWKS endpoint, contains the correct claims based on granted scopes, and has proper expiration.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span class="text-emerald-400 font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">Bank Integration Working</p>
+                                    <p class="text-slate-300 text-sm">Successful authentication with at least one bank through OpenFinance.ai sandbox, with proper callback handling and error recovery.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 bg-slate-900/50 rounded-lg p-4 border border-slate-700">
+                                <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span class="text-emerald-400 font-bold text-sm">4</span>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">No Sensitive Data Storage</p>
+                                    <p class="text-slate-300 text-sm">Verify that no PII, bank credentials, or financial data is stored in the database — only hashed identifiers, verification status, and consent records.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Client Side -->
         <section id="client-side" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
             <div class="max-w-5xl mx-auto">
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Frontend</span>
-                    <h2 class="text-5xl font-bold mb-4 text-white">6. Client Side</h2>
+                    <h2 class="text-5xl font-bold mb-4 text-white">8. Client Side</h2>
                     <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 
@@ -1775,7 +2504,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-semibold text-white mb-4">6.1. Usage Illustration</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-4">8.1. Usage Illustration</h3>
                         <div class="space-y-6">
                             <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-3">Scenario 1: Fintech Onboarding</h4>
@@ -1820,7 +2549,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-semibold text-white mb-6">6.2. Mockup</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-6">8.2. Mockup</h3>
                         <p class="text-slate-300 mb-6">
                             Visual mockups of the key client-side screens and components:
                         </p>
@@ -2188,7 +2917,7 @@
             <div class="max-w-5xl mx-auto">
                 <div class="mb-12">
                     <span class="text-sm font-semibold text-sky-400 uppercase tracking-wider mb-2 block">Backend</span>
-                    <h2 class="text-5xl font-bold mb-4 text-white">7. Server Side</h2>
+                    <h2 class="text-5xl font-bold mb-4 text-white">9. Server Side</h2>
                     <div class="w-20 h-1 bg-sky-400 rounded-full shadow-3d"></div>
                 </div>
                 
@@ -2276,7 +3005,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-semibold text-white mb-4">7.1. API</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-4">9.1. API</h3>
                         <div class="space-y-6">
                             <div class="card-3d rounded-lg p-6 shadow-3d">
                                 <h4 class="text-xl font-semibold text-emerald-400 mb-4">OAuth 2.0 / OpenID Connect Endpoints</h4>
@@ -2365,7 +3094,7 @@
         <!-- References -->
         <section id="references" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-8 text-white">8. References</h2>
+                <h2 class="text-4xl font-bold mb-8 text-white">10. References</h2>
                 
                 <div class="space-y-6">
                     <div class="card-3d rounded-lg p-6 shadow-3d">
