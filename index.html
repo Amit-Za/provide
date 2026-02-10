@@ -31,13 +31,14 @@
             font-family: 'Sora', system-ui, sans-serif;
         }
         .nav-link {
-            transition: color 0.2s ease;
+            transition: color 0.15s ease;
+            color: #a1a1aa;
         }
         .nav-link:hover {
-            color: #38bdf8;
+            color: #fafafa;
         }
         .nav-link.active {
-            color: #10b981;
+            color: #fafafa;
         }
         section {
             scroll-margin-top: 80px;
@@ -47,30 +48,24 @@
                 scroll-margin-top: 60px;
             }
         }
-        /* Mermaid modern styling */
+        /* Mermaid styling */
         .mermaid {
             background: transparent !important;
-        }
-        .mermaid svg {
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
         }
         .mermaid .node rect,
         .mermaid .node circle,
         .mermaid .node ellipse,
         .mermaid .node polygon {
-            rx: 8;
-            ry: 8;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            rx: 6;
+            ry: 6;
         }
         .mermaid .edgePath .path {
-            stroke-width: 2.5px;
-            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+            stroke-width: 1.5px;
         }
         .mermaid .edgeLabel {
-            background-color: rgba(30, 41, 59, 0.9) !important;
-            border-radius: 6px;
-            padding: 4px 8px;
-            backdrop-filter: blur(8px);
+            background-color: rgba(9, 9, 11, 0.95) !important;
+            border-radius: 4px;
+            padding: 3px 6px;
         }
         /* Mockup responsive styles */
         .mockup-container {
@@ -102,74 +97,29 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
         .animate-fade-in {
-            animation: fadeIn 0.8s ease-out;
+            opacity: 1;
         }
-        /* Smooth section transitions */
-        section {
-            transition: all 0.3s ease;
+        /* Flat design - no shadows */
+        .shadow-3d, .shadow-3d-lg, .shadow-3d-xl {
+            box-shadow: none;
         }
-        /* 3D Shadow Effects */
-        .shadow-3d {
-            box-shadow: 
-                0 10px 25px -5px rgba(0, 0, 0, 0.4),
-                0 5px 10px -3px rgba(0, 0, 0, 0.3),
-                0 2px 4px -1px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-        .shadow-3d-lg {
-            box-shadow: 
-                0 20px 40px -10px rgba(0, 0, 0, 0.5),
-                0 10px 20px -5px rgba(0, 0, 0, 0.4),
-                0 4px 8px -2px rgba(0, 0, 0, 0.3),
-                inset 0 2px 0 rgba(255, 255, 255, 0.1);
-        }
-        .shadow-3d-xl {
-            box-shadow: 
-                0 30px 60px -15px rgba(0, 0, 0, 0.6),
-                0 15px 30px -8px rgba(0, 0, 0, 0.5),
-                0 6px 12px -3px rgba(0, 0, 0, 0.4),
-                inset 0 3px 0 rgba(255, 255, 255, 0.15);
-        }
-        /* Professional hover effects with 3D */
+        /* Subtle hover */
         .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color 0.2s ease;
         }
         .hover-lift:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                0 12px 24px -6px rgba(0, 0, 0, 0.4),
-                0 6px 12px -3px rgba(0, 0, 0, 0.3),
-                inset 0 2px 0 rgba(255, 255, 255, 0.15);
+            border-color: #3f3f46;
         }
-        /* Card styling with 3D effect */
+        /* Flat card */
         .card-3d {
-            background: rgb(30, 41, 59);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            box-shadow: 
-                0 8px 20px -4px rgba(0, 0, 0, 0.4),
-                0 4px 10px -2px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            background: rgba(24, 24, 27, 0.4);
+            border: 1px solid rgba(39, 39, 42, 0.8);
         }
-        /* Icon container with 3D effect */
+        /* Flat icon container */
         .icon-3d {
-            background: rgb(56, 189, 248);
-            box-shadow: 
-                0 8px 16px -4px rgba(56, 189, 248, 0.4),
-                0 4px 8px -2px rgba(56, 189, 248, 0.3),
-                inset 0 2px 4px rgba(255, 255, 255, 0.2),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+            background: rgba(161, 161, 170, 0.08);
+            box-shadow: none;
         }
     </style>
 </head>
